@@ -1,0 +1,235 @@
+/**
+ * Bootstrap Fonts
+ */
+
+@font-face {
+    font-family: 'Glyphicons Halflings';
+    src: url('../bower_components/bootstrap/fonts/glyphicons-halflings-regular.eot');
+    src: url('../bower_components/bootstrap/fonts/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'),
+    url('../bower_components/bootstrap/fonts/glyphicons-halflings-regular.woff') format('woff'),
+    url('../bower_components/bootstrap/fonts/glyphicons-halflings-regular.ttf') format('truetype'),
+    url('../bower_components/bootstrap/fonts/glyphicons-halflings-regular.svg#glyphicons_halflingsregular') format('svg');
+}
+
+/**
+ *Font Awesome Fonts
+ */
+
+@font-face {
+    font-family: 'FontAwesome';
+    src: url('../bower_components/font-awesome/fonts/fontawesome-webfont.eot?v=4.1.0');
+    src: url('../bower_components/font-awesome/fonts/fontawesome-webfont.eot?#iefix&v=4.1.0') format('embedded-opentype'),
+    url('../bower_components/font-awesome/fonts/fontawesome-webfont.woff?v=4.1.0') format('woff'),
+    url('../bower_components/font-awesome/fonts/fontawesome-webfont.ttf?v=4.1.0') format('truetype'),
+    url('../bower_components/font-awesome/fonts/fontawesome-webfont.svg?v=4.1.0#fontawesomeregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/**
+ * App-wide Styles
+ */
+
+.browsehappy {
+    margin: 0.2em 0;
+    background: #ccc;
+    color: #000;
+    padding: 0.2em 0;
+}
+
+html, body {
+    height: 100%;
+    overflow: hidden;
+    color: #575859;
+}
+
+/**
+ * Side-panel
+ */
+
+.side-panel {
+    position: absolute;
+    left: 0;
+    width: 325px;
+    height: 100%;
+    border-right: solid #6ca5ff 1px;
+    box-shadow: 3px 0 5px -5px #93969F, -3px 0 5px -5px #93969F;
+}
+
+.side-panel > header {
+    display: inline-block;
+    width: 100%;
+    height: 60px;
+    color: white;
+    background-color: #4B8BF4;
+}
+
+.side-panel > header .side-panel-logo {
+    float: left;
+    padding-left: 10px;
+    padding-top: 13px;
+    height: 50px;
+}
+
+.side-panel > header .side-panel-title {
+    float: right;
+    padding-top: 20px;
+    margin-right: 20px;
+    font-weight: lighter;
+    font-size: 20px;
+    letter-spacing: 1px;
+}
+
+.side-panel section {
+    position: absolute;
+    margin-top: -5px;
+    height: 93%;
+    width: 100%;
+    overflow: auto;
+
+}
+
+.side-panel .side-section {
+
+}
+
+/* section - download button */
+
+.side-panel .side-section-download {
+    padding: 20px;
+}
+
+.side-panel .btn-download {
+    width: 100%;
+    background-color: #4B8BF4;
+    color: #fFF;
+    font-size: 17px;
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.07) inset, 0 1px 0 rgba(255, 255, 255, 0.07);
+}
+
+/* section - headers */
+
+.side-section .side-section-header {
+    display: inline-block;
+    background-color: #F3F5F7;
+    width: 100%;
+}
+
+.side-section .side-section-header h4 {
+    float: left;
+    padding-left: 10px;
+}
+
+.side-section .btn-revert {
+    float: right;
+    color: #93969F;
+    margin-top: 8px;
+    margin-right: 15px;
+    background-color: transparent;
+    border: none;
+    outline: none;
+}
+
+/* section - colors */
+
+.side-section ul {
+    list-style: none;
+    padding-left: 20px;
+}
+
+.side-section li {
+    margin-bottom: 10px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid #ECF0F6;
+}
+
+.side-section li:first-child {
+    margin-top: 5px;
+}
+
+.side-section li:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 5px;
+
+}
+
+.side-section li > .color-picker {
+    width: 23px;
+    height: 23px;
+    border: 1px solid #ECF0F6;
+    cursor: pointer;
+    float: right;
+    margin-right: 20px;
+}
+
+.side-section-footer {
+    background-color: #2B3442;
+    padding-top: 4px;
+    text-align: center;
+    width: 100%;
+    color: white;
+    height: 50px;
+}
+
+.side-section-footer h4 {
+    font-weight: lighter !important;
+    font-size: 14px;
+    letter-spacing: 1px;
+}
+
+/**
+ * Main-panel
+ */
+
+.main-panel {
+    position: absolute;
+    top: 0;
+    left: 325px;
+    bottom: 0;
+    right: 0;
+    height: 100%;
+}
+
+/* Main - tabs */
+
+.main-panel-tabs {
+    list-style: none;
+    height: 60px;
+    padding-top: 20px;
+    border-bottom: solid #4B8BF4 1px;
+    color: white;
+    background-color: #4B8BF4;
+    font-weight: lighter;
+    letter-spacing: 1px;
+}
+
+.main-panel-tabs > li {
+    font-size: 18px;
+    list-style: none;
+    box-sizing: border-box;
+    margin-right: 20px;
+    display: inline-block;
+}
+
+/* Main - section */
+
+.main-panel .main-panel-view {
+    padding: 20px;
+    position: absolute;
+    top: 60px;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    overflow: auto;
+}
+
+/*
+ * Other
+ */
+
+.icon-lg {
+    font-size: 1.75em;
+    line-height: 1;
+}
+
