@@ -6,8 +6,7 @@ angular.module('projectsApp', [
     'ngSanitize',
     'ui.router',
     'ui.bootstrap',
-    'colorpicker.module'
-
+    'angularSpectrumColorpicker'
 ])
     .config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
         $urlRouterProvider

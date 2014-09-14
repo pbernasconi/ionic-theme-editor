@@ -24,23 +24,37 @@
                 <ul>
                     <li>
                         Background Color
-                        <div class="color-picker" colorpicker colorpicker-position="bottom" ng-model="lightColor" ng-style="{'background-color': lightColor };"></div>
+                        <spectrum-colorpicker ng-model="backgroundColor"
+                                              options="{showInput: true, showAlpha: true, clickoutFiresChange: true, showInitial: true}"
+                                              format="'hex'"
+                                              ng-style="{'background-color': backgroundColor };">
+                        </spectrum-colorpicker>
                     </li>
                     <li>
                         Text Color
-                        <div class="color-picker" colorpicker colorpicker-position="bottom" ng-model="lightColor" ng-style="{'background-color': lightColor };"></div>
+                        <spectrum-colorpicker ng-model="textColor"
+                                              options="{showInput: true, showAlpha: true, clickoutFiresChange: true, showInitial: true}"
+                                              format="'hex'"
+                                              ng-style="{'background-color': textColor };">
+                        </spectrum-colorpicker>
                     </li>
                     <li>
                         Bsd
-                        <div class="color-picker" colorpicker colorpicker-position="bottom" ng-model="lightColor" ng-style="{'background-color': lightColor };"></div>
+                        <spectrum-colorpicker ng-model="lightColor"
+                                              options="{showInput: true, showAlpha: true, clickoutFiresChange: true, showInitial: true}"
+                                              format="'hex'"
+                                              ng-style="{'background-color': lightColor };">
+                        </spectrum-colorpicker>
                     </li>
                     <li>
                         Links
-                        <div class="color-picker" colorpicker colorpicker-position="bottom" ng-model="lightColor" ng-style="{'background-color': lightColor };"></div>
+                        <spectrum-colorpicker ng-model="lightColor"
+                                              options="{showInput: true, showAlpha: true, clickoutFiresChange: true, showInitial: true}"
+                                              format="'hex'"
+                                              ng-style="{'background-color': linksColor };">
+                        </spectrum-colorpicker>
                     </li>
-                    <li>
-                        Font Size
-                    </li>
+
                 </ul>
 
             </div>
@@ -55,38 +69,74 @@
                 <ul>
                     <li>
                         $light
-                        <div class="color-picker" colorpicker colorpicker-position="bottom" ng-model="lightColor" ng-style="{'background-color': lightColor };"></div>
+                        <spectrum-colorpicker ng-model="lightColor"
+                                              options="{showInput: true, showAlpha: true, clickoutFiresChange: true, showInitial: true}"
+                                              format="'hex'"
+                                              ng-style="{'background-color': lightColor };">
+                        </spectrum-colorpicker>
                     <li>
                         $stable
-                        <div class="color-picker" colorpicker colorpicker-position="bottom" ng-model="stableColor" ng-style="{'background-color': stableColor };"></div>
+                        <spectrum-colorpicker ng-model="stableColor"
+                                              options="{showInput: true, showAlpha: true, clickoutFiresChange: true, showInitial: true}"
+                                              format="'hex'"
+                                              ng-style="{'background-color': stableColor };">
+                        </spectrum-colorpicker>
                     </li>
                     <li>
                         $positive
-                        <div class="color-picker" colorpicker colorpicker-position="bottom" ng-model="positiveColor" ng-style="{'background-color': positiveColor };"></div>
+                        <spectrum-colorpicker ng-model="positiveColor"
+                                              options="{showInput: true, showAlpha: true, clickoutFiresChange: true, showInitial: true}"
+                                              format="'hex'"
+                                              ng-style="{'background-color': positiveColor };">
+                        </spectrum-colorpicker>
                     </li>
                     <li>
                         $calm
-                        <div class="color-picker" colorpicker colorpicker-position="bottom" ng-model="calmColor" ng-style="{'background-color': calmColor };"></div>
+                        <spectrum-colorpicker ng-model="calmColor"
+                                              options="{showInput: true, showAlpha: true, clickoutFiresChange: true, showInitial: true}"
+                                              format="'hex'"
+                                              ng-style="{'background-color': calmColor };">
+                        </spectrum-colorpicker>
                     </li>
                     <li>
                         $balanced
-                        <div class="color-picker" colorpicker colorpicker-position="bottom" ng-model="balancedColor" ng-style="{'background-color': balancedColor };"></div>
+                        <spectrum-colorpicker ng-model="balancedColor"
+                                              options="{showInput: true, showAlpha: true, clickoutFiresChange: true, showInitial: true}"
+                                              format="'hex'"
+                                              ng-style="{'background-color': balancedColor };">
+                        </spectrum-colorpicker>
                     </li>
                     <li>
                         $energized
-                        <div class="color-picker" colorpicker colorpicker-position="bottom" ng-model="energizedColor" ng-style="{'background-color': energizedColor };"></div>
+                        <spectrum-colorpicker ng-model="energizedColor"
+                                              options="{showInput: true, showAlpha: true, clickoutFiresChange: true, showInitial: true}"
+                                              format="'hex'"
+                                              ng-style="{'background-color': energizedColor };">
+                        </spectrum-colorpicker>
                     </li>
                     <li>
                         $assertive
-                        <div class="color-picker" colorpicker colorpicker-position="bottom" ng-model="assertiveColor" ng-style="{'background-color': assertiveColor };"></div>
+                        <spectrum-colorpicker ng-model="assertiveColor"
+                                              options="{showInput: true, showAlpha: true, clickoutFiresChange: true, showInitial: true}"
+                                              format="'hex'"
+                                              ng-style="{'background-color': assertiveColor };">
+                        </spectrum-colorpicker>
                     </li>
                     <li>
                         $royal
-                        <div class="color-picker" colorpicker colorpicker-position="bottom" ng-model="royalColor" ng-style="{'background-color': royalColor };"></div>
+                        <spectrum-colorpicker ng-model="royalColor"
+                                              options="{showInput: true, showAlpha: true, clickoutFiresChange: true, showInitial: true}"
+                                              format="'hex'"
+                                              ng-style="{'background-color': royalColor };">
+                        </spectrum-colorpicker>
                     </li>
                     <li>
                         $dark
-                        <div class="color-picker" colorpicker colorpicker-position="bottom" ng-model="darkColor" ng-style="{'background-color': darkColor };"></div>
+                        <spectrum-colorpicker ng-model="darkColor"
+                                              options="{showInput: true, showAlpha: true, clickoutFiresChange: true, showInitial: true}"
+                                              format="'hex'"
+                                              ng-style="{'background-color': darkColor };">
+                        </spectrum-colorpicker>
                     </li>
                 </ul>
             </div>
@@ -101,15 +151,15 @@
                 <ul>
                     <li>
                         Font Size - Base
-                        <input type="text" class="">
+                        <input type="number" class="side-section-input">
                     </li>
                     <li>
                         Font Size - Large
-                        <input type="text" class="">
+                        <input type="text" class="side-section-input">
                     </li>
                     <li>
                         Font Size - Small
-                        <input type="text" class="">
+                        <input type="text" class="side-section-input">
                     </li>
 
                 </ul>
@@ -132,6 +182,19 @@
             <li>Examples</li>
         </ul>
         <div class="main-panel-view">
+
+            <div class="row">
+                <div class="col-md-4 col-sm-6">
+                    test
+                </div>
+
+                <div class="col-md-4 col-sm-6">
+                    tes
+                </div>
+                <div class="col-md-4 col-sm-6">
+                    test
+                </div>
+            </div>
 
         </div>
     </div>
