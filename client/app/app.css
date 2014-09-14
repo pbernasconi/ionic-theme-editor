@@ -143,6 +143,11 @@ html, body {
     border-bottom: 1px solid #ECF0F6;
 }
 
+.side-section .section-color-preview {
+    float: right;
+    margin-right: 10px;
+}
+
 .side-section li:first-child {
     margin-top: 5px;
 }
@@ -179,6 +184,7 @@ html, body {
 .side-section-footer {
     background-color: #2B3442;
     padding-top: 4px;
+    margin-top: 25px;
     text-align: center;
     width: 100%;
     color: white;
@@ -235,6 +241,13 @@ html, body {
     bottom: 0;
     left: 0;
     overflow: auto;
+}
+
+.main-panel-view .preview-card {
+    height: 150px;
+    background-color: #ECF0F6;
+    border: 1px solid #4B8BF4;
+    box-shadow: 0px 0px 5px #d8e1ff;
 }
 
 /*

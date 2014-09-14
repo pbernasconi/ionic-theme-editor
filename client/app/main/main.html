@@ -22,39 +22,15 @@
                     </button>
                 </div>
                 <ul>
-                    <li>
-                        Background Color
-                        <spectrum-colorpicker ng-model="backgroundColor"
+                    <li ng-repeat="item in globals" ng-mouseover="show = true" ng-mouseleave="show = false">
+                        {{item.name}}
+                        <spectrum-colorpicker ng-model="item.value"
                                               options="{showInput: true, showAlpha: true, clickoutFiresChange: true, showInitial: true}"
                                               format="'hex'"
-                                              ng-style="{'background-color': backgroundColor };">
+                                              ng-style="{'background-color': item.value };">
                         </spectrum-colorpicker>
+                        <span ng-if="show == true" class="section-color-preview" ng-bind="item.value"></span>
                     </li>
-                    <li>
-                        Text Color
-                        <spectrum-colorpicker ng-model="textColor"
-                                              options="{showInput: true, showAlpha: true, clickoutFiresChange: true, showInitial: true}"
-                                              format="'hex'"
-                                              ng-style="{'background-color': textColor };">
-                        </spectrum-colorpicker>
-                    </li>
-                    <li>
-                        Bsd
-                        <spectrum-colorpicker ng-model="lightColor"
-                                              options="{showInput: true, showAlpha: true, clickoutFiresChange: true, showInitial: true}"
-                                              format="'hex'"
-                                              ng-style="{'background-color': lightColor };">
-                        </spectrum-colorpicker>
-                    </li>
-                    <li>
-                        Links
-                        <spectrum-colorpicker ng-model="lightColor"
-                                              options="{showInput: true, showAlpha: true, clickoutFiresChange: true, showInitial: true}"
-                                              format="'hex'"
-                                              ng-style="{'background-color': linksColor };">
-                        </spectrum-colorpicker>
-                    </li>
-
                 </ul>
 
             </div>
@@ -65,78 +41,15 @@
                         <i class="icon icon-lg ion-ios7-refresh-empty"></i>
                     </button>
                 </div>
-
                 <ul>
-                    <li>
-                        $light
-                        <spectrum-colorpicker ng-model="lightColor"
+                    <li ng-repeat="item in colors" ng-mouseover="show = true" ng-mouseleave="show = false">
+                        {{item.name}}
+                        <spectrum-colorpicker ng-model="item.value"
                                               options="{showInput: true, showAlpha: true, clickoutFiresChange: true, showInitial: true}"
                                               format="'hex'"
-                                              ng-style="{'background-color': lightColor };">
+                                              ng-style="{'background-color': item.value };">
                         </spectrum-colorpicker>
-                    <li>
-                        $stable
-                        <spectrum-colorpicker ng-model="stableColor"
-                                              options="{showInput: true, showAlpha: true, clickoutFiresChange: true, showInitial: true}"
-                                              format="'hex'"
-                                              ng-style="{'background-color': stableColor };">
-                        </spectrum-colorpicker>
-                    </li>
-                    <li>
-                        $positive
-                        <spectrum-colorpicker ng-model="positiveColor"
-                                              options="{showInput: true, showAlpha: true, clickoutFiresChange: true, showInitial: true}"
-                                              format="'hex'"
-                                              ng-style="{'background-color': positiveColor };">
-                        </spectrum-colorpicker>
-                    </li>
-                    <li>
-                        $calm
-                        <spectrum-colorpicker ng-model="calmColor"
-                                              options="{showInput: true, showAlpha: true, clickoutFiresChange: true, showInitial: true}"
-                                              format="'hex'"
-                                              ng-style="{'background-color': calmColor };">
-                        </spectrum-colorpicker>
-                    </li>
-                    <li>
-                        $balanced
-                        <spectrum-colorpicker ng-model="balancedColor"
-                                              options="{showInput: true, showAlpha: true, clickoutFiresChange: true, showInitial: true}"
-                                              format="'hex'"
-                                              ng-style="{'background-color': balancedColor };">
-                        </spectrum-colorpicker>
-                    </li>
-                    <li>
-                        $energized
-                        <spectrum-colorpicker ng-model="energizedColor"
-                                              options="{showInput: true, showAlpha: true, clickoutFiresChange: true, showInitial: true}"
-                                              format="'hex'"
-                                              ng-style="{'background-color': energizedColor };">
-                        </spectrum-colorpicker>
-                    </li>
-                    <li>
-                        $assertive
-                        <spectrum-colorpicker ng-model="assertiveColor"
-                                              options="{showInput: true, showAlpha: true, clickoutFiresChange: true, showInitial: true}"
-                                              format="'hex'"
-                                              ng-style="{'background-color': assertiveColor };">
-                        </spectrum-colorpicker>
-                    </li>
-                    <li>
-                        $royal
-                        <spectrum-colorpicker ng-model="royalColor"
-                                              options="{showInput: true, showAlpha: true, clickoutFiresChange: true, showInitial: true}"
-                                              format="'hex'"
-                                              ng-style="{'background-color': royalColor };">
-                        </spectrum-colorpicker>
-                    </li>
-                    <li>
-                        $dark
-                        <spectrum-colorpicker ng-model="darkColor"
-                                              options="{showInput: true, showAlpha: true, clickoutFiresChange: true, showInitial: true}"
-                                              format="'hex'"
-                                              ng-style="{'background-color': darkColor };">
-                        </spectrum-colorpicker>
+                        <span ng-if="show == true" class="section-color-preview" ng-bind="item.value"></span>
                     </li>
                 </ul>
             </div>
@@ -184,16 +97,19 @@
         <div class="main-panel-view">
 
             <div class="row">
-                <div class="col-md-4 col-sm-6">
-                    test
+                <div class="col-sm-6">
+                    <div class="preview-card">
+                        test
+                    </div>
                 </div>
 
-                <div class="col-md-4 col-sm-6">
-                    tes
+                <div class="col-sm-6">
+                    <div class="preview-card">
+                        test
+                    </div>
+
                 </div>
-                <div class="col-md-4 col-sm-6">
-                    test
-                </div>
+
             </div>
 
         </div>

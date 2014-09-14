@@ -5,20 +5,62 @@ angular.module('projectsApp')
 
         // globals
 
-        $scope.backgroundColor = "#fff";
-        $scope.textColor = "#000";
+        $scope.globals = [
+            {
+                name: "Background Color",
+                value: "#fff"
+            },
+            {
+                name: "Text Color",
+                value: "#000"
+            },
+            {
+                name: "Link Color",
+                value: "#fff"
+            }
+        ];
 
 
         // color variables
-        $scope.lightColor = "#fff";
-        $scope.stableColor = "#f8f8f8";
-        $scope.positiveColor = "#4a87ee";
-        $scope.calmColor = "#43cee6";
-        $scope.balancedColor = "#66cc33";
-        $scope.energizedColor = "#f0b840";
-        $scope.assertiveColor = "#ef4e3a";
-        $scope.royalColor = "#8a6de9";
-        $scope.darkColor = "#444";
+
+        $scope.colors = [
+            {
+                name: "light",
+                value: "#fff"
+            },
+            {
+                name: "stable",
+                value: "#f8f8f8"
+            },
+            {
+                name: "positive",
+                value: "#4a87ee"
+            },
+            {
+                name: "calm",
+                value: "#43cee6"
+            },
+            {
+                name: "balanced",
+                value: "#66cc33"
+            },
+            {
+                name: "energized",
+                value: "#f0b840"
+            },
+            {
+                name: "assertive",
+                value: "#ef4e3a"
+            },
+            {
+                name: "royal",
+                value: "#8a6de9"
+            },
+            {
+                name: "dark",
+                value: "#444"
+            }
+        ];
 
         $scope.revert = function (list) {
             switch (list) {
