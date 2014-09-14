@@ -2,14 +2,14 @@
 
     <div class="side-panel">
         <header>
-            <img src="../assets/logo-pack/ionic-logo-white.svg" class="side-panel-logo">
+            <img src="../assets/images/logo-pack/ionic-logo-white.svg" class="side-panel-logo">
 
             <div class="side-panel-title">Customizer</div>
         </header>
 
         <section>
             <div class="side-section-download">
-                <button class="btn btn-download">Download Theme</button>
+                <a class="btn btn-download" href="/api/compile?data={{data}}" target="_self">Download Theme</a>
             </div>
             <div class="side-section">
 
@@ -57,7 +57,7 @@
             <div class="side-section">
                 <div class="side-section-header">
                     <h4>Fonts</h4>
-                    <button class="btn-revert" ng-click="revert('globals')">
+                    <button class="btn-revert" ng-click="revert('fonts')">
                         <i class="icon icon-lg ion-ios7-refresh-empty"></i>
                     </button>
                 </div>
@@ -84,51 +84,23 @@
         <ul class="main-panel-tabs">
             <li>Components</li>
             <li>Examples</li>
+            <li class="tabs-left">
+                <button class="btn-login" ng-click="loginGithub()">Login <i class="icon ion-social-github fa-lg"></i> </button>
+            </li>
         </ul>
         <div class="main-panel-view">
             <ul>
                 <li class="preview-card">
                     <div class="card-header">Header</div>
 
-                    <div>
-                        content
-                    </div>
-                </li>
-                <li class="preview-card">
-                    <div class="card-header">Header</div>
+                    <div class="card-content">
+                        <div class="bar bar-header bar-positive">
+                            <h1 class="title">bar-positive</h1>
+                        </div>
 
-                    <div>
-                        content
                     </div>
                 </li>
-                <li class="preview-card">
-                    <div class="card-header">Header</div>
 
-                    <div>
-                        content
-                    </div>
-                </li>
-                <li class="preview-card">
-                    <div class="card-header">Header</div>
-
-                    <div>
-                        content
-                    </div>
-                </li>
-                <li class="preview-card">
-                    <div>Header</div>
-
-                    <div>
-                        content
-                    </div>
-                </li>
-                <li class="preview-card">
-                    <div>Header</div>
-
-                    <div>
-                        content
-                    </div>
-                </li>
             </ul>
         </div>
     </div>

@@ -1,38 +1,41 @@
-'use strict';
+"use strict";
 
-angular.module('projectsApp')
-    .controller('MainCtrl', function ($scope, $http) {
+angular.module("projectsApp")
+    .controller("MainCtrl", function ($scope, Compiler) {
+
 
         // globals
         $scope.globals = [
-            { name: "Background Color", value: "#fff" },
-            {  name: "Text Color", value: "#000" },
-            { name: "Link Color", value: "#fff"}
+            { name: "Background Color", variable: "$base-background-color", value: "#fff" },
+            { name: "Text Color", variable: "$base-color", value: "#000" },
+            { name: "Link Color", variable: "$link-color", value: "#4a87ee"}
         ];
 
 
         // color variables
         $scope.colors = [
-            { name: "light", value: "#fff" },
-            { name: "stable", value: "#f8f8f8"},
-            { name: "positive", value: "#4a87ee"},
-            { name: "calm", value: "#43cee6"   },
-            { name: "balanced", value: "#66cc33"},
-            { name: "energized", value: "#f0b840"},
-            { name: "assertive", value: "#ef4e3a"},
-            { name: "royal", value: "#8a6de9" },
-            { name: "dark", value: "#444"  }
+            { name: "light", variable: "$light", value: "#fff" },
+            { name: "stable", variable: "$stable", value: "#f8f8f8"},
+            { name: "positive", variable: "$positive", value: "#4a87ee"},
+            { name: "calm", variable: "$calm", value: "#43cee6"   },
+            { name: "balanced", variable: "$balanced", value: "#66cc33"},
+            { name: "energized", variable: "$energized", value: "#f0b840"},
+            { name: "assertive", variable: "$assertive", value: "#ef4e3a"},
+            { name: "royal", variable: "$royal", value: "#8a6de9" },
+            { name: "dark", variable: "$dark", value: "#444"  }
         ];
 
         $scope.fonts = [
-            {name: "Base - font size", value: "14px"},
-            {name: "Large - font size", value: "18px"},
-            {name: "Small - font size", value: "11px"}
+            {name: "Base - font size", variable: "$font-size-base", value: "14px"},
+            {name: "Large - font size", variable: "$font-size-large", value: "18px"},
+            {name: "Small - font size", variable: "$font-size-small", value: "11px"}
         ];
 
         var globalsCopy = angular.copy($scope.globals);
         var colorsCopy = angular.copy($scope.colors);
         var fontsCopy = angular.copy($scope.fonts);
+        $scope.data = _.union($scope.globals, $scope.colors, $scope.fonts);
+
 
         $scope.revert = function (list) {
             switch (list) {
@@ -43,14 +46,25 @@ angular.module('projectsApp')
                     });
                     break;
                 case "colors" :
-                    var _Ccopy = angular.copy(colorsCopy);
+                    var _cCopy = angular.copy(colorsCopy);
                     _.each($scope.colors, function (item, index) {
-                        item.value = _Ccopy[index].value;
+                        item.value = _cCopy[index].value;
+                    });
+                    break;
+                case "fonts" :
+                    var _fCopy = angular.copy(fontsCopy);
+                    _.each($scope.fonts, function (item, index) {
+                        item.value = _fCopy[index].value;
                     });
                     break;
                 default :
                     break;
             }
+        };
+
+        $scope.download = function () {
+
+            Compiler.get(data);
         }
 
     });

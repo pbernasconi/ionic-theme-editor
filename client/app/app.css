@@ -252,7 +252,6 @@ ul {
 .main-panel-tabs {
     list-style: none;
     height: 60px;
-    padding-top: 20px;
     border-bottom: solid #4B8BF4 1px;
     color: white;
     background-color: #4B8BF4;
@@ -262,10 +261,31 @@ ul {
 
 .main-panel-tabs > li {
     font-size: 18px;
+    padding-top: 18px;
     list-style: none;
     box-sizing: border-box;
     margin-right: 20px;
     display: inline-block;
+    border-top: 2px solid transparent;
+}
+
+.main-panel-tabs > li:hover {
+    border-top: 2px solid white;
+}
+
+.main-panel-tabs .tabs-left {
+    float: right;
+}
+
+.main-panel-tabs .tabs-left > .btn-login {
+    background-color: transparent;
+    border: none;
+}
+
+.main-panel-tabs .tabs-left > .btn-login:hover,
+.main-panel-tabs .tabs-left > .btn-login:focus {
+    border: none;
+    outline: none;
 }
 
 /* Main - section */
@@ -286,7 +306,6 @@ ul {
 
 .main-panel-view .preview-card {
     height: 150px;
-    background-color: #ECF0F6;
     border-top: 3px solid #93969F;
     box-shadow: 0 1px 3px #e0e4ea;
     margin: 0 8px 34px 8px;
@@ -296,10 +315,14 @@ ul {
 }
 
 .preview-card .card-header {
+    background-color: #ECF0F6;
     padding: 5px;
-    border-bottom: 1px solid #93969F;
     font-size: 15px;
     font-weight: bold;
+}
+
+.preview-card .card-content {
+    padding: 5px;
 }
 
 /*
@@ -310,4 +333,3 @@ ul {
     font-size: 1.75em;
     line-height: 1;
 }
-
