@@ -17,9 +17,9 @@
             <div class="side-section">
                 <div class="side-section-header">
                     <h4>Globals</h4>
-                    <button class="btn-revert" ng-click="revert('globals')">
+                    <a class="btn-revert" ng-click="revert('globals')">
                         <i class="icon icon-lg ion-ios7-refresh-empty"></i>
-                    </button>
+                    </a>
                 </div>
                 <ul>
                     <li ng-repeat="item in globals" ng-mouseover="show = true" ng-mouseleave="show = false">
@@ -37,7 +37,7 @@
             <div class="side-section">
                 <div class="side-section-header">
                     <h4>Colors</h4>
-                    <button class="btn-revert" ng-click="revert('globals')">
+                    <button class="btn-revert" ng-click="revert('colors')">
                         <i class="icon icon-lg ion-ios7-refresh-empty"></i>
                     </button>
                 </div>
@@ -62,19 +62,10 @@
                     </button>
                 </div>
                 <ul>
-                    <li>
-                        Font Size - Base
-                        <input type="number" class="side-section-input">
+                    <li ng-repeat="item in fonts">
+                        {{item.name}}
+                        <input type="text" class="side-section-input" ng-model="item.value">
                     </li>
-                    <li>
-                        Font Size - Large
-                        <input type="text" class="side-section-input">
-                    </li>
-                    <li>
-                        Font Size - Small
-                        <input type="text" class="side-section-input">
-                    </li>
-
                 </ul>
 
             </div>
@@ -95,23 +86,50 @@
             <li>Examples</li>
         </ul>
         <div class="main-panel-view">
+            <ul>
+                <li class="preview-card">
+                    <div class="card-header">Header</div>
 
-            <div class="row">
-                <div class="col-sm-6">
-                    <div class="preview-card">
-                        test
+                    <div>
+                        content
                     </div>
-                </div>
+                </li>
+                <li class="preview-card">
+                    <div class="card-header">Header</div>
 
-                <div class="col-sm-6">
-                    <div class="preview-card">
-                        test
+                    <div>
+                        content
                     </div>
+                </li>
+                <li class="preview-card">
+                    <div class="card-header">Header</div>
 
-                </div>
+                    <div>
+                        content
+                    </div>
+                </li>
+                <li class="preview-card">
+                    <div class="card-header">Header</div>
 
-            </div>
+                    <div>
+                        content
+                    </div>
+                </li>
+                <li class="preview-card">
+                    <div>Header</div>
 
+                    <div>
+                        content
+                    </div>
+                </li>
+                <li class="preview-card">
+                    <div>Header</div>
+
+                    <div>
+                        content
+                    </div>
+                </li>
+            </ul>
         </div>
     </div>
 </div>

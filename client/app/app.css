@@ -43,6 +43,10 @@ html, body {
     color: #575859;
 }
 
+ul {
+    list-style: none;
+}
+
 /**
  * Side-panel
  */
@@ -130,6 +134,10 @@ html, body {
     outline: none;
 }
 
+.side-section .btn-revert:hover, .side-section .btn-revert:active {
+    color: #ff4f5a;
+}
+
 /* side-section - colors */
 
 .side-section ul {
@@ -145,6 +153,7 @@ html, body {
 
 .side-section .section-color-preview {
     float: right;
+    color: #93969F;
     margin-right: 10px;
 }
 
@@ -163,18 +172,21 @@ html, body {
 
 .side-section-input {
     float: right;
-    width: 100px;
+    text-align: right;
+    width: 70px;
     margin-right: 20px;
     border: 1px solid #ECF0F6;
     border-radius: 2px;
-    padding: 2px;
+    padding-right: 5px;
+    padding-top: 2px;
+    padding-bottom: 2px;
     -webkit-transition: all 0.30s ease-in-out;
     -moz-transition: all 0.30s ease-in-out;
     -ms-transition: all 0.30s ease-in-out;
     -o-transition: all 0.30s ease-in-out;
 }
 
-.side-section-input:focus {
+.side-section-input:focus, .side-section-input:hover {
     border: 1px solid #4B8BF4;
     outline: none;
 }
@@ -195,6 +207,31 @@ html, body {
     font-weight: lighter !important;
     font-size: 14px;
     letter-spacing: 1px;
+}
+
+/*
+ * Color-picker
+ */
+
+.sp-replacer {
+    float: right;
+    margin-right: 20px;
+    background-color: transparent;
+    padding: 0;
+    border: none;
+    width: 23px;
+    height: 23px;
+}
+
+.sp-replacer .sp-preview {
+    margin: 0;
+    border: 1px solid #ECF0F6;
+    width: 23px;
+    height: 23px;
+}
+
+.sp-dd {
+    display: none;
 }
 
 /**
@@ -243,36 +280,26 @@ html, body {
     overflow: auto;
 }
 
+.main-panel-view ul {
+
+}
+
 .main-panel-view .preview-card {
     height: 150px;
     background-color: #ECF0F6;
-    border: 1px solid #4B8BF4;
-    box-shadow: 0px 0px 5px #d8e1ff;
+    border-top: 3px solid #93969F;
+    box-shadow: 0 1px 3px #e0e4ea;
+    margin: 0 8px 34px 8px;
+    list-style: none;
+    display: inline-block;
+    width: 300px;
 }
 
-/*
- * Color-picker
- */
-
-.sp-replacer {
-    float: right;
-    margin-right: 20px;
-    background-color: transparent;
-    padding: 0;
-    border: none;
-    width: 23px;
-    height: 23px;
-}
-
-.sp-replacer .sp-preview {
-    margin: 0;
-    border: 1px solid #ECF0F6;
-    width: 23px;
-    height: 23px;
-}
-
-.sp-dd {
-    display: none;
+.preview-card .card-header {
+    padding: 5px;
+    border-bottom: 1px solid #93969F;
+    font-size: 15px;
+    font-weight: bold;
 }
 
 /*
