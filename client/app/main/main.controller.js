@@ -65,12 +65,15 @@ angular.module("projectsApp")
             var data = _.union($scope.globals, $scope.colors, $scope.fonts);
             Compiler.post(data)
                 .success(function (response) {
+                    var id = response.id;
+                    console.log(id);
                     if (response.success == true) {
                         var hiddenElement = document.createElement('a');
-                        hiddenElement.href = '/api/compile/';
+
+                        hiddenElement.href = '/api/compile/' + id;
                         hiddenElement.target = '_blank';
-                        hiddenElement.download = 'ionic.app.scss';
-                        //hiddenElement.click();
+                        hiddenElement.download = 'ionic.app.css';
+                        hiddenElement.click();
                     }
                 })
                 .error(function (error) {

@@ -1,17 +1,16 @@
 @charset "UTF-8";
 
 @import
-  // Ionicons "ionicons/ionicons",
+"ionicons/ionicons",
 
-  // Variables
 "mixins",
 "variables",
 
-  // Base "reset",
+"reset",
 "scaffolding",
 "type",
 
-  // Components "action-sheet",
+"action-sheet",
 "bar",
 "tabs",
 "menu",
@@ -23,16 +22,16 @@
 "slide-box",
 "split-pane",
 
-  // Forms "form",
+"form",
 "checkbox",
 "toggle",
 "radio",
 "range",
 
-  // Buttons "button",
+"button",
 "button-bar",
 
-  // Util "animations",
+"animations",
 "grid",
 "util",
 "platform";

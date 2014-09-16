@@ -11,19 +11,12 @@ var sass = require('node-sass');
 
 
 exports.index = function (req, res) {
-    res.download(path.resolve("./server/tmp/ionic_app.scss"), "ionic.scss");
+
 };
 
 exports.show = function (req, res) {
-    Compile.findById(req.params.id, function (err, compile) {
-        if (err) {
-            return handleError(res, err);
-        }
-        if (!compile) {
-            return res.send(404);
-        }
-        return res.json(compile);
-    });
+    var id = req.params.id;
+    res.download(path.resolve("./server/ionic/tmp/ionic.app." + id + ".css"), "ionic.app.css");
 };
 
 // Creates a new compile in the DB.
@@ -31,46 +24,37 @@ exports.create = function (req, res) {
     var postData = req.body;
     var outputString = "";
 
-
     /*
-    mkdirp('./server/tmp', function (err) {
-        if (!err == null) console.log(err);
-    });
-
+     mkdirp('./server/tmp', function (err) {
+     if (!err == null) console.log(err);
+     });
+     */
     _.each(postData, function (each) {
         outputString += each.variable + ":  " + each.value + " !default;\n";
     });
 
-    outputString += "@import '../ionic/scss/ionic';";
+    outputString += "@import './server/ionic/scss/ionic';";
 
-
-    fs.writeFile(path.resolve("./server/tmp/ionic_app.scss"), outputString, function (error, data) {
-        if (error) {
-            return console.log(error);
-        }
-    });
-
-*/
-
+    var dateID = new Date().getTime();
     var stats = {};
     sass.renderFile({
-        file: path.resolve("./server/ionic/tmp/ionic_app.scss"),
-        //data: "/* test */" + "$base-background-color:  #fff;",
+        data: outputString,
         success: function (css) {
-            console.log(css);
-            console.log(stats);
+            //console.log(css);
+            //console.log(stats);
+            res.status(200).json({success: true, id: dateID});
         },
         error: function (error) {
             console.log(error);
+            res.status(400).json({success: false, id: null});
         },
         includePaths: ['ionic/scss/ionic'],
-        outFile: "./server/ionic/tmp/ionic_app.css",
+        outFile: "./server/ionic/tmp/ionic.app." + dateID + ".css",
         outputStyle: 'nested',
         stats: stats
     });
 
 
-    res.status(200).json({success: true});
 };
 
 exports.update = function (req, res) {

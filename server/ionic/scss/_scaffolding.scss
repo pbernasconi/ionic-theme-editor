@@ -7,7 +7,7 @@
 *,
 *:before,
 *:after {
-  //@include box-sizing(border-box);
+  @include box-sizing(border-box);
 }
 
 body, .ionic-body {
