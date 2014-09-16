@@ -34,7 +34,6 @@ angular.module("projectsApp")
         var globalsCopy = angular.copy($scope.globals);
         var colorsCopy = angular.copy($scope.colors);
         var fontsCopy = angular.copy($scope.fonts);
-        $scope.data = _.union($scope.globals, $scope.colors, $scope.fonts);
 
 
         $scope.revert = function (list) {
@@ -63,8 +62,20 @@ angular.module("projectsApp")
         };
 
         $scope.download = function () {
+            var data = _.union($scope.globals, $scope.colors, $scope.fonts);
+            Compiler.post(data)
+                .success(function (response) {
+                    if (response.success == true) {
+                        var hiddenElement = document.createElement('a');
+                        hiddenElement.href = '/api/compile/';
+                        hiddenElement.target = '_blank';
+                        hiddenElement.download = 'ionic.app.scss';
+                        //hiddenElement.click();
+                    }
+                })
+                .error(function (error) {
 
-            Compiler.get(data);
-        }
+                })
+        };
 
     });

@@ -5,8 +5,10 @@ angular.module('projectsApp')
 
         return {
             get: function (data) {
-                var request = $http.get('/api/compile');
-                return request
+                return $http.get('/api/compile/');
+            },
+            post: function (data) {
+                return $http.post('/api/compile/', data);
             }
         }
 
