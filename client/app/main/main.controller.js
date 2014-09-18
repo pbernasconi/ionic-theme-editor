@@ -73,7 +73,7 @@ angular.module("projectsApp")
                         hiddenElement.href = '/api/compile/' + id;
                         hiddenElement.target = '_blank';
                         hiddenElement.download = 'ionic.app.css';
-                        hiddenElement.click();
+                       // hiddenElement.click();
                     }
                 })
                 .error(function (error) {
