@@ -6,6 +6,8 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="ionic-theme-editor node_modules" level="project" />
+    <orderEntry type="library" name="angular" level="application" />
+    <orderEntry type="library" name="angularjs-DefinitelyTyped" level="application" />
   </component>
 </module>
 

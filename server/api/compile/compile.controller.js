@@ -47,6 +47,7 @@ exports.create = function (req, res) {
                 url: 'https://api.github.com/repos/driftyco/ionic/contents/scss?', //ref=v' + ionicVersion,
                 headers: {'User-Agent': 'request'}
             };
+
             request(gitOptions, function (error, response, body) {
                 if (!error && response.statusCode == 200) {
                     var scss = JSON.parse(body);
