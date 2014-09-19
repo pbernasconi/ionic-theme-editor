@@ -273,6 +273,10 @@ ul {
     border-top: 2px solid white;
 }
 
+.main-panel-tabs > li.active {
+    border-top: 2px solid white;
+}
+
 .main-panel-tabs .tabs-left {
     float: right;
 }
@@ -300,10 +304,6 @@ ul {
     overflow: auto;
 }
 
-.main-panel-view ul {
-
-}
-
 .main-panel-view .preview-card {
     height: 150px;
     border-top: 3px solid #93969F;
@@ -325,6 +325,27 @@ ul {
     padding: 5px;
 }
 
+
+/* Device preview */
+
+.device-bg {
+    background-image: url("../assets/images/device.png");
+    background-size: 243px 528px;
+    height: 528px;
+    width: 243px;
+}
+
+.device-screen {
+    position: absolute;
+    top: 69px;
+    left: 23px;
+    z-index: 0;
+    width: 227px;
+    height: 384px;
+    border: 1px solid #22272d;
+    background-color: white;
+}
+
 /*
  * Other
  */
@@ -332,4 +353,9 @@ ul {
 .icon-lg {
     font-size: 1.75em;
     line-height: 1;
+}
+
+
+iframe #codepen-footer {
+    display: none !important;
 }

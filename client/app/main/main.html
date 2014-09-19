@@ -73,35 +73,86 @@
             <div class="side-section-footer">
                 <h4>Made with <3 Paolo Bernasconi</h4>
             </div>
-
-
         </section>
-
-
     </div>
 
     <div class="main-panel">
         <ul class="main-panel-tabs">
-            <li>Components</li>
-            <li>Examples</li>
+            <li ng-click="setActiveTab(0)" ng-class="{'active': activeTab == 0}">Components</li>
+            <li ng-click="setActiveTab(1)" ng-class="{'active': activeTab == 1}">Phone View</li>
+            <li ng-click="setActiveTab(2)" ng-class="{'active': activeTab == 2}">Examples</li>
             <li class="tabs-left">
                 <button class="btn-login" ng-click="loginGithub()">Login <i class="icon ion-social-github fa-lg"></i></button>
             </li>
         </ul>
         <div class="main-panel-view">
-            <ul>
-                <li class="preview-card">
-                    <div class="card-header">Header</div>
+            <div ng-if="activeTab == 0">
+                <ul>
+                    <li class="preview-card">
+                        <div class="card-header">Header</div>
 
-                    <div class="card-content">
-                        <div class="bar bar-header bar-positive">
-                            <h1 class="title">bar-positive</h1>
+                        <div class="card-content">
+                            <div class="bar bar-header bar-positive">
+                                <h1 class="title">bar-positive</h1>
+                            </div>
                         </div>
+                    </li>
 
+                    <li class="preview-card">
+                        <div class="card-header">Header</div>
+
+                        <div class="card-content">
+
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div ng-if="activeTab == 1">
+                <div class="row">
+                    <div class="col-sm-3">
+                        <div class="device-bg">
+                            <div class="device-screen ionic">
+                                <div class="bar bar-header">
+                                    <div class="h1 title">Header</div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                </li>
+                    <div class="col-sm-3">
+                        <div class="device-bg">
+                            <div class="device-screen ionic">
+                                <div class="bar bar-header">
+                                    <div class="h1 title">Header</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="device-bg">
+                            <div class="device-screen ionic">
+                                <div class="bar bar-header">
+                                    <div class="h1 title">Header</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="device-bg">
+                            <div class="device-screen ionic">
+                                <div class="bar bar-header">
+                                    <div class="h1 title">Header</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-            </ul>
+            </div>
+
+            <div ng-if="activeTab == 2">
+                2
+            </div>
+
         </div>
     </div>
 </div>

@@ -2,15 +2,15 @@
 
 angular.module("projectsApp")
     .controller("MainCtrl", function ($scope, Compiler) {
+        $scope.activeTab = 1;
 
 
-        // globals
+        // global variables
         $scope.globals = [
             { name: "Background Color", variable: "$base-background-color", value: "#fff" },
             { name: "Text Color", variable: "$base-color", value: "#000" },
             { name: "Link Color", variable: "$link-color", value: "#4a87ee"}
         ];
-
 
         // color variables
         $scope.colors = [
@@ -25,6 +25,7 @@ angular.module("projectsApp")
             { name: "dark", variable: "$dark", value: "#444"  }
         ];
 
+        // font variables
         $scope.fonts = [
             {name: "Base - font size", variable: "$font-size-base", value: "14px"},
             {name: "Large - font size", variable: "$font-size-large", value: "18px"},
@@ -61,6 +62,10 @@ angular.module("projectsApp")
             }
         };
 
+        $scope.setActiveTab = function (index) {
+            return $scope.activeTab = index;
+        };
+
         $scope.download = function () {
             var data = _.union($scope.globals, $scope.colors, $scope.fonts);
             Compiler.post(data)
@@ -73,7 +78,7 @@ angular.module("projectsApp")
                         hiddenElement.href = '/api/compile/' + id;
                         hiddenElement.target = '_blank';
                         hiddenElement.download = 'ionic.app.css';
-                       // hiddenElement.click();
+                        // hiddenElement.click();
                     }
                 })
                 .error(function (error) {
