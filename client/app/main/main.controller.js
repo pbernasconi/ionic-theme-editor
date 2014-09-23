@@ -74,7 +74,6 @@ angular.module("projectsApp")
                     console.log(id);
                     if (response.success == true) {
                         var hiddenElement = document.createElement('a');
-
                         hiddenElement.href = '/api/compile/' + id;
                         hiddenElement.target = '_blank';
                         hiddenElement.download = 'ionic.app.css';
