@@ -12,7 +12,6 @@ var sass = require('node-sass');
 
 
 exports.index = function (req, res) {
-
 };
 
 exports.show = function (req, res) {
@@ -20,22 +19,11 @@ exports.show = function (req, res) {
     res.download(path.resolve("./server/ionic/tmp/ionic.app." + id + ".css"), "ionic.app.css");
 };
 
-// Creates a new compile in the DB.
-exports.create = function (req, res) {
-    var postData = req.body;
+function getNightly(postData) {
     var outputString = "";
     var ionicVersion = "";
-    var stats = {};
     var githubStr = "https://github.com/driftyco/ionic/blob/master/";
     var rawgitStr = "https://cdn.rawgit.com/driftyco/ionic/master/";
-
-    mkdirp('./server/ionic/scss_test', function (err) {
-        if (!err == null) console.log(err);
-    });
-
-    mkdirp('./server/ionic/tmp', function (err) {
-        if (!err == null) console.log(err);
-    });
 
     request('https://cdn.rawgit.com/driftyco/ionic/master/package.json', function (error, response, body) {
         if (!error && response.statusCode == 200) {
@@ -54,7 +42,7 @@ exports.create = function (req, res) {
                     _.each(scss, function (each) {
                         if (each.name != "ionicons") {
                             var fileIn = each.html_url.replace(githubStr, rawgitStr);
-                            var fileOut = path.resolve("./server/ionic/scss_test/" + each.name);
+                            var fileOut = path.resolve("./server/ionic/scss/" + each.name);
 
                             var options = {
                                 url: fileIn,
@@ -63,30 +51,17 @@ exports.create = function (req, res) {
 
                             request(options, function (error, res, bod) {
                                 fs.writeFile(path.resolve(fileOut), (bod), function (error) {
-                                    if (error) console.log("error : " + error)
+                                    if (error) console.log("error : " + error);
                                     else {
                                         _.each(postData, function (each) {
                                             outputString += each.variable + ":  " + each.value + " !default;\n";
                                         });
 
-                                        outputString += "@import './server/ionic/scss_test/ionic';";
+                                        outputString += "@import './server/ionic/scss/ionic';";
 
                                         var dateID = new Date().getTime();
 
-                                        sass.renderFile({
-                                            data: outputString,
-                                            success: function (css) {
-                                                //res.status(200).json({success: true, id: dateID});
-                                            },
-                                            error: function (error) {
-                                                console.log(error);
-                                                //res.status(400).json({success: false, id: null});
-                                            },
-                                            includePaths: ['ionic/scss/ionic'],
-                                            outFile: "./server/ionic/tmp/ionic.app." + dateID + ".css",
-                                            outputStyle: 'nested',
-                                            stats: stats
-                                        });
+                                        CompileSass(outputString, dateID);
                                     }
                                 });
                             });
@@ -97,6 +72,70 @@ exports.create = function (req, res) {
 
 
         }
+    });
+}
+
+function CompileSass(outputString, dateID) {
+    var stats = {};
+    sass.renderFile({
+        data: outputString,
+        success: function (css) {
+            //res.status(200).json({success: true, id: dateID});
+        },
+        error: function (error) {
+            console.log(error);
+            //res.status(400).json({success: false, id: null});
+        },
+        includePaths: ['ionic/scss/ionic'],
+        outFile: "./server/ionic/tmp/ionic.app.css", // + dateID + ".css",
+        outputStyle: 'nested',
+        stats: stats
+    });
+}
+
+// Creates a new compile in the DB.
+exports.create = function (req, res) {
+    var postData = req.body;
+
+    mkdirp('./server/ionic/scss_test', function (err) { // create new scss test folder
+        if (!err == null) console.log(err);
+    });
+
+    mkdirp('./server/ionic/tmp', function (err) { // temporary file
+        if (!err == null) console.log(err);
+    });
+
+    getNightly(postData)
+};
+
+exports.live = function (req, res) {
+
+    var reqData = req.query;
+    var sassString = "";
+    res.set('Content-Type', 'text/css');
+
+    _.each(reqData, function (value, key) {
+        sassString += key + ":  " + value + " !default;\n";
+    });
+
+    sassString += "@import './server/ionic/scss/ionic';";
+    //sassString += "@function best-text-color($color) { @if (lightness( $color ) > 70) {@return #000000;} @else { @return #FFFFFF;}}";
+    //sassString += ".bar {&.bar-brand { @include bar-style($brand, lighten($brand, 50%), best-text-color($brand));} }";
+
+
+    var stats = {};
+    sass.render({
+        data: sassString,
+        success: function (css) {
+            res.send(css);
+        },
+        error: function (error) {
+            console.log(error);
+            res.status(400).json({success: false, id: null});
+        },
+        includePaths: ['ionic/scss/ionic'],
+        outputStyle: 'compressed',
+        stats: stats
     });
 
 

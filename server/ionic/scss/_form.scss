@@ -49,13 +49,14 @@ textarea {
   @include align-items(center);
   position: relative;
   overflow: hidden;
-  padding: 6px 8px 5px;
+  padding: 6px 0 5px 16px;
 
   input {
     @include border-radius(0);
     @include flex(1, 0, 220px);
     @include appearance(none);
     margin: 0;
+    padding-right: 24px;
     background-color: transparent;
   }
 
@@ -100,7 +101,7 @@ textarea {
 .item-input-inset .item-input-wrapper input {
   padding-left: 4px;
   height: 29px;
-  background: inherit;
+  background: transparent;
   line-height: 18px;
 }
 
@@ -110,11 +111,12 @@ textarea {
 
 .input-label {
   @include flex(1, 0, 100px);
-  padding: 7px 10px 7px 3px;
+  display: table;
+  padding: 7px 10px 7px 0px;
   max-width: 200px;
+  width: 35%;
   color: $input-label-color;
-  font-weight: bold;
-  font-size: $font-size-base;
+  font-size: 16px;
 }
 
 .placeholder-icon {
@@ -134,22 +136,41 @@ textarea {
 
   .input-label, .icon {
     display: inline-block;
-    padding: 4px 0;
+    padding: 4px 0 0 0px;
     vertical-align: middle;
   }
 }
 
 .item-stacked-label input,
-.item-stacked-label textarea
-{
+.item-stacked-label textarea {
   @include border-radius(2px);
-  overflow: hidden;
-  padding: 4px 8px 3px;
+  padding: 4px 8px 3px 0;
   border: none;
   background-color: $input-bg;
 }
 .item-stacked-label input {
+  overflow: hidden;
   height: $line-height-computed + $font-size-base + 12px;
+}
+
+.item-floating-label {
+  display: block;
+  background-color: transparent;
+  box-shadow: none;
+
+  .input-label {
+    position: relative;
+    padding: 5px 0 0 0;
+    opacity: 0;
+    top: 10px;
+    @include transition(opacity .15s ease-in, top .2s linear);
+
+    &.has-input {
+      opacity: 1;
+      top: 0;
+      @include transition(opacity .15s ease-in, top .2s linear);
+    }
+  }
 }
 
 
@@ -157,7 +178,6 @@ textarea {
 // -------------------------------
 
 // Shared size and type resets
-select,
 textarea,
 input[type="text"],
 input[type="password"],
@@ -175,6 +195,7 @@ input[type="tel"],
 input[type="color"] {
   display: block;
   padding-top: 2px;
+  padding-left: 0;
   height: $line-height-computed + $font-size-base;
   color: $input-color;
   vertical-align: middle;
@@ -182,9 +203,24 @@ input[type="color"] {
   line-height: $font-size-base + 2;
 }
 
+.platform-ios,
+.platform-android {
+  input[type="datetime-local"],
+  input[type="date"],
+  input[type="month"],
+  input[type="time"],
+  input[type="week"] {
+    padding-top: 8px;
+  }
+}
+
 input,
 textarea {
   width: 100%;
+}
+textarea {
+  padding-left: 0;
+  @include placeholder($input-color-placeholder, -3px);
 }
 
 // Reset height since textareas have rows
@@ -229,22 +265,18 @@ input[type="checkbox"] {
   width: auto; // Override of generic input selector
 }
 
-// Make multiple select elements height not fixed
-select[multiple],
-select[size] {
-  height: auto;
-}
-
-// Set the height of select and file controls to match text inputs
-select,
+// Set the height of file to match text inputs
 input[type="file"] {
   line-height: $input-height-base;
 }
 
-// Make select elements obey height by applying a border
-select {
-  border: $input-border-width solid $input-border;
-  background-color: $input-bg; // Chrome on Linux and Mobile Safari need background-color
+// Text input classes to hide text caret during scroll
+.previous-input-focus,
+.cloned-text-input + input,
+.cloned-text-input + textarea {
+  position: absolute !important;
+  left: -9999px;
+  width: 200px;
 }
 
 
@@ -263,9 +295,9 @@ textarea {
 input[disabled],
 select[disabled],
 textarea[disabled],
-input[readonly],
-select[readonly],
-textarea[readonly] {
+input[readonly]:not(.cloned-text-input),
+textarea[readonly]:not(.cloned-text-input),
+select[readonly] {
   background-color: $input-bg-disabled;
   cursor: not-allowed;
 }

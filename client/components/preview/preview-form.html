@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="http://code.ionicframework.com/nightly/css/ionic.min.css">
+    <link id="ionic-css" rel="stylesheet" href="/">
+
+    <script src="http://code.ionicframework.com/nightly/js/ionic.bundle.min.js"></script>
+</head>
+<body ng-app="starter">
+
+<ion-pane>
+    <ion-header-bar class="bar-brand">
+        <h1 class="title">Title</h1>
+    </ion-header-bar>
+    <ion-content class="has-header">
+
+        <div class="list">
+            <label class="item item-input">
+                <span class="input-label">Username</span>
+                <input type="text">
+            </label>
+            <label class="item item-input">
+                <span class="input-label">Password</span>
+                <input type="password">
+            </label>
+        </div>
+    </ion-content>
+</ion-pane>
+<script>
+    angular.module('starter', ['ionic']);
+
+    var css = document.getElementById('ionic-css');
+    window.IonicThemer = {
+        update: function (colors) {
+            var args = [];
+            for (var i = 0; i < colors.length; i++) {
+                args.push(encodeURIComponent(colors[i].variable) + "=" + encodeURIComponent(colors[i].value));
+            }
+            var path = args.join('&');
+            var newUrl = '/api/compile/live/ionic.css?' + path;
+            //css.setAttribute('href', newUrl);
+        }
+    }
+</script>
+</body>
+</html>

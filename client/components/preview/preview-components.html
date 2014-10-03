@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="http://code.ionicframework.com/nightly/css/ionic.min.css">
+    <link id="ionic-css" rel="stylesheet" href="/">
+
+    <script src="http://code.ionicframework.com/nightly/js/ionic.bundle.min.js"></script>
+</head>
+<body ng-app="starter">
+
+<ion-pane>
+    <ion-header-bar class="bar-brand">
+        <h1 class="title">Title</h1>
+    </ion-header-bar>
+    <ion-content class="has-header">
+
+        <ul class="list">
+
+            <li class="item item-toggle">
+                HTML5
+                <label class="toggle toggle-assertive">
+                    <input type="checkbox">
+
+                    <div class="track">
+                        <div class="handle"></div>
+                    </div>
+                </label>
+            </li>
+
+            <li class="item item-checkbox">
+                <label class="checkbox">
+                    <input type="checkbox">
+                </label>
+                Flux Capacitor
+            </li>
+
+            <label class="item item-radio">
+                <input type="radio" name="group">
+
+                <div class="item-content">
+                    Go
+                </div>
+                <i class="radio-icon ion-checkmark"></i>
+            </label>
+            <label class="item item-radio">
+                <input type="radio" name="group">
+
+                <div class="item-content">
+                    Go
+                </div>
+                <i class="radio-icon ion-checkmark"></i>
+            </label>
+
+            <div class="item range range-positive">
+                <i class="icon ion-ios7-sunny-outline"></i>
+                <input type="range" name="volume" min="0" max="100" value="33">
+                <i class="icon ion-ios7-sunny"></i>
+            </div>
+            <label class="item item-input item-select">
+                <div class="input-label">
+                    Lightsaber
+                </div>
+                <select>
+                    <option>Blue</option>
+                    <option selected>Green</option>
+                    <option>Red</option>
+                </select>
+            </label>
+        </ul>
+    </ion-content>
+</ion-pane>
+<script>
+    angular.module('starter', ['ionic']);
+
+    var css = document.getElementById('ionic-css');
+    window.IonicThemer = {
+        update: function (colors) {
+            var args = [];
+            for (var i = 0; i < colors.length; i++) {
+                args.push(encodeURIComponent(colors[i].variable) + "=" + encodeURIComponent(colors[i].value));
+            }
+            var path = args.join('&');
+            var newUrl = '/api/compile/live/ionic.css?' + path;
+            //css.setAttribute('href', newUrl);
+        }
+    }
+</script>
+</body>
+</html>

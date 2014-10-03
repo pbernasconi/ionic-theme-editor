@@ -32,6 +32,8 @@ angular.module("projectsApp")
             {name: "Small - font size", variable: "$font-size-small", value: "11px"}
         ];
 
+        $scope.data = _.union($scope.globals, $scope.colors, $scope.fonts);
+
         var globalsCopy = angular.copy($scope.globals);
         var colorsCopy = angular.copy($scope.colors);
         var fontsCopy = angular.copy($scope.fonts);

@@ -11,26 +11,10 @@
   padding-left: 0; // reset padding because ul and ol
   margin-bottom: 20px;
 }
-/* If a list is the last item in a container, don't add margin-bottom */
 .list:last-child {
   margin-bottom: 0px;
-}
-
-/**
- * List editing styles. These trigger when the entire list goes into
- * "edit mode" or reordering list items
- */
-.list-editing {
-  .item-content {
-    @include translate3d(50px, 0, 0);
-  }
-}
-.list-reordering {
-  .item-content {
-    margin-right: 50px;
-  }
-  .item-drag {
-    z-index: 1;
+  &.card{
+    margin-bottom:40px;
   }
 }
 
@@ -72,7 +56,14 @@
 .card {
   padding-top: $item-border-width;
   padding-bottom: $item-border-width;
-  box-shadow: 0 1px 1px rgba(0, 0, 0, .1);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, .10);
+}
+
+.padding {
+  .card, .list-inset {
+    margin-left: 0;
+    margin-right: 0;
+  }
 }
 
 .card .item,
@@ -110,6 +101,10 @@
 .padding-horizontal > .list .item {
   margin-right: 0;
   margin-left: 0;
+
+  &.item-input input {
+    padding-right: 44px;
+  }
 }
 .padding-left > .list .item {
   margin-left: 0;
