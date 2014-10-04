@@ -77,6 +77,11 @@ exports.live = function (req, res) {
     var sassString = "";
     res.set('Content-Type', 'text/css');
 
+    sassString += "$font-family-sans-serif: 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif !default;";
+    sassString += "$font-family-light-sans-serif:'Helvetica Neue-Light', 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif !default;"
+    sassString += "$font-family-serif: Georgia, 'Times New Roman', Times, serif !default;";
+    sassString += "$font-family-monospace:  Monaco, Menlo, Consolas, 'Courier New', monospace !default;";
+
     _.each(reqData, function (value, key) {
         sassString += key + ":  " + value + " !default;\n";
     });

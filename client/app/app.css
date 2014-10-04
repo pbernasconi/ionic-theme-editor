@@ -214,6 +214,28 @@ ul {
     outline: none;
 }
 
+
+.side-section-select {
+    float: right;
+    text-align: right;
+    width: 120px;
+    margin-right: 20px;
+    border: 1px solid #ECF0F6;
+    border-radius: 2px;
+    padding-right: 5px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    -webkit-transition: all 0.30s ease-in-out;
+    -moz-transition: all 0.30s ease-in-out;
+    -ms-transition: all 0.30s ease-in-out;
+    -o-transition: all 0.30s ease-in-out;
+}
+
+.side-section-select:focus, .side-section-select:hover {
+    border: 1px solid #4B8BF4;
+    outline: none;
+}
+
 /* side-section - footer */
 
 .side-section-footer {

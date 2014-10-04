@@ -12,28 +12,26 @@
             <button class="btn btn-download" ng-click="download()">Download Theme</button>
         </div>
         <div class="side-section">
-
-        </div>
-        <div class="side-section">
             <div class="side-section-header">
                 <h4>Globals</h4>
-                <a class="btn-revert" ng-click="revert('globals')">
+                <button class="btn-revert" ng-click="revert('globals')">
                     <i class="icon icon-lg ion-ios7-refresh-empty"></i>
-                </a>
+                </button>
             </div>
             <ul>
                 <li ng-repeat="item in globals" ng-mouseover="show = true" ng-mouseleave="show = false">
                     {{item.name}}
-                    <spectrum-colorpicker ng-model="item.value"
+                    <spectrum-colorpicker ng-if="item.type == 'color'"
+                                          ng-model="item.value"
                                           options="{showInput: true, showAlpha: true, clickoutFiresChange: true, showInitial: true}"
                                           format="'hex'"
                                           ng-style="{'background-color': item.value };">
                     </spectrum-colorpicker>
-                    <span ng-if="show == true" class="section-color-preview" ng-bind="item.value"></span>
+                    <span ng-if="show == true && item.type == 'color'" class="section-color-preview" ng-bind="item.value"></span>
                 </li>
             </ul>
-
         </div>
+
         <div class="side-section">
             <div class="side-section-header">
                 <h4>Colors</h4>
@@ -64,10 +62,30 @@
             <ul>
                 <li ng-repeat="item in fonts">
                     {{item.name}}
-                    <input type="text" class="side-section-input" ng-model="item.value">
+                    <input type="text" class="side-section-input" ng-if="item.type == 'pixel'" ng-model="item.value">
+                    <select class="side-section-select" ng-if="item.type == 'select'" ng-model="item.value">
+                        <option value="$font-family-sans-serif" selected>Sans serif</option>
+                        <option value="$font-family-light-sans-serif">light sans-serif</option>
+                        <option value="$font-family-serif">serif</option>
+                        <option value="$font-family-monospace">monospace</option>
+                    </select>
                 </li>
             </ul>
+        </div>
 
+        <div class="side-section">
+            <div class="side-section-header">
+                <h4>Padding</h4>
+                <button class="btn-revert" ng-click="revert('padding')">
+                    <i class="icon icon-lg ion-ios7-refresh-empty"></i>
+                </button>
+            </div>
+            <ul>
+                <li ng-repeat="item in padding" ng-mouseover="show = true" ng-mouseleave="show = false">
+                    {{item.name}}
+                    <input type="text" class="side-section-input" ng-if="item.type == 'pixel'" ng-model="item.value">
+                </li>
+            </ul>
         </div>
 
         <div class="side-section-footer">
