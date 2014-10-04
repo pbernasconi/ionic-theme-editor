@@ -9,15 +9,108 @@ var request = require('request');
 var mkdirp = require('mkdirp');
 var path = require('path');
 var sass = require('node-sass');
+var shortId = require('shortid');
 
 
-exports.index = function (req, res) {
-};
-
-exports.show = function (req, res) {
+// GET : download file, remove after success
+exports.download = function (req, res) {
     var id = req.params.id;
-    res.download(path.resolve("./server/ionic/tmp/ionic.app." + id + ".css"), "ionic.app.css");
+    var file = "./server/ionic/tmp/ionic-" + id + ".app.css";
+
+    res.download(path.resolve(file), "ionic.app.css", function (err) {  // send file for download
+        if (err) {
+            console.log(err);
+            throw err;
+        } else {
+            fs.unlink(path.resolve(file), function (err) { // delete file when done
+                if (err) {
+                    console.log(err);
+                    throw err;
+                }
+                res.status(200);
+            });
+        }
+    });
 };
+
+
+// POST : Creates a new compile in the DB.
+exports.compile = function (req, res) {
+    var postData = req.body;
+    var uniqueID = shortId.generate(); // generate a unique ID for tmp file
+    var stats = {};
+    var outputString = "";
+
+    mkdirp('./server/ionic/tmp', function (err) { // create temporary folder
+        if (err) {
+            console.log(err);
+            throw err;
+        }
+    });
+
+    _.each(postData, function (each) { // create variables SASS compiler string
+        outputString += each.variable + ":  " + each.value + " !default;\n";
+    });
+
+    outputString += "@import './server/ionic/scss/ionic';"; // import ionic into SASS compiler string
+
+    sass.renderFile({
+        data: outputString,
+        success: function (css) {
+            res.status(200).json({success: true, id: uniqueID});
+        },
+        error: function (error) {
+            console.log(error);
+            res.status(400).json({success: false, id: null});
+        },
+        outFile: "./server/ionic/tmp/ionic-" + uniqueID + ".app.css",
+        outputStyle: 'nested',
+        stats: stats
+    });
+};
+
+
+// GET : compile for live preview
+exports.live = function (req, res) {
+
+    var reqData = req.query;
+    var sassString = "";
+    res.set('Content-Type', 'text/css');
+
+    _.each(reqData, function (value, key) {
+        sassString += key + ":  " + value + " !default;\n";
+    });
+
+    sassString += "@import './server/ionic/scss/ionic';";
+    //sassString += "@function best-text-color($color) { @if (lightness( $color ) > 70) {@return #000000;} @else { @return #FFFFFF;}}";
+    //sassString += ".bar {&.bar-brand { @include bar-style($brand, lighten($brand, 50%), best-text-color($brand));} }";
+
+
+    var stats = {};
+    sass.render({
+        data: sassString,
+        success: function (css) {
+            res.send(css);
+        },
+        error: function (error) {
+            console.log(error);
+            res.status(400).json({success: false, id: null});
+        },
+        includePaths: ['ionic/scss/ionic'],
+        outputStyle: 'compressed',
+        stats: stats
+    });
+};
+
+
+// ??? : Update ionic sass files depending on latest version
+exports.update = function (req, res) {
+
+    mkdirp('./server/ionic/scss_test', function (err) { // create new scss test folder
+        if (!err == null) console.log(err);
+    });
+};
+
 
 function getNightly(postData) {
     var outputString = "";
@@ -92,92 +185,6 @@ function CompileSass(outputString, dateID) {
         stats: stats
     });
 }
-
-// Creates a new compile in the DB.
-exports.create = function (req, res) {
-    var postData = req.body;
-
-    mkdirp('./server/ionic/scss_test', function (err) { // create new scss test folder
-        if (!err == null) console.log(err);
-    });
-
-    mkdirp('./server/ionic/tmp', function (err) { // temporary file
-        if (!err == null) console.log(err);
-    });
-
-    getNightly(postData)
-};
-
-exports.live = function (req, res) {
-
-    var reqData = req.query;
-    var sassString = "";
-    res.set('Content-Type', 'text/css');
-
-    _.each(reqData, function (value, key) {
-        sassString += key + ":  " + value + " !default;\n";
-    });
-
-    sassString += "@import './server/ionic/scss/ionic';";
-    //sassString += "@function best-text-color($color) { @if (lightness( $color ) > 70) {@return #000000;} @else { @return #FFFFFF;}}";
-    //sassString += ".bar {&.bar-brand { @include bar-style($brand, lighten($brand, 50%), best-text-color($brand));} }";
-
-
-    var stats = {};
-    sass.render({
-        data: sassString,
-        success: function (css) {
-            res.send(css);
-        },
-        error: function (error) {
-            console.log(error);
-            res.status(400).json({success: false, id: null});
-        },
-        includePaths: ['ionic/scss/ionic'],
-        outputStyle: 'compressed',
-        stats: stats
-    });
-
-
-};
-
-exports.update = function (req, res) {
-    if (req.body._id) {
-        delete req.body._id;
-    }
-    Compile.findById(req.params.id, function (err, compile) {
-        if (err) {
-            return handleError(res, err);
-        }
-        if (!compile) {
-            return res.send(404);
-        }
-        var updated = _.merge(compile, req.body);
-        updated.save(function (err) {
-            if (err) {
-                return handleError(res, err);
-            }
-            return res.json(200, compile);
-        });
-    });
-};
-
-exports.destroy = function (req, res) {
-    Compile.findById(req.params.id, function (err, compile) {
-        if (err) {
-            return handleError(res, err);
-        }
-        if (!compile) {
-            return res.send(404);
-        }
-        compile.remove(function (err) {
-            if (err) {
-                return handleError(res, err);
-            }
-            return res.send(204);
-        });
-    });
-};
 
 function handleError(res, err) {
     return res.send(500, err);

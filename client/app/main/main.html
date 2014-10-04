@@ -85,7 +85,7 @@
             <button class="btn-login" ng-click="loginGithub()">Login <i class="icon ion-social-github fa-lg"></i></button>
         </li>
     </ul>
-    <div class="main-panel-view container-fluid">
+    <div class="main-panel-view">
         <div ng-if="activeTab == 0">
             <ul>
                 <li class="preview-card">
@@ -165,21 +165,21 @@
             </div>
             <div ng-show="iframeLoaded == true" ng-cloak style="padding: 40px;">
                 <div class="row">
-                    <div class="col-sm-4 col-centered">
+                    <div class="col-md-4">
                         <h4 class="device-header">Header Bar</h4>
 
                         <div class="device-bg">
                             <iframe class="device-screen ionic" on-load="iframeCallback()" theme="data" src="../components/preview/preview-header.html"></iframe>
                         </div>
                     </div>
-                    <div class="col-sm-4 col-centered">
+                    <div class="col-md-4">
                         <h4 class="device-header">Button</h4>
 
                         <div class="device-bg">
                             <iframe class="device-screen ionic" theme="data" src="../components/preview/preview-buttons.html"></iframe>
                         </div>
                     </div>
-                    <div class="col-sm-4 col-centered">
+                    <div class="col-md-4">
                         <h4 class="device-header">List</h4>
 
                         <div class="device-bg">

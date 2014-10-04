@@ -2,17 +2,19 @@
 
 angular.module("projectsApp")
     .controller("MainCtrl", function ($scope, $timeout, Compiler) {
+
+        // initial variables
         $scope.activeTab = 1;
         $scope.iframeLoaded = false;
 
-        // global variables
+        // Global variables
         $scope.globals = [
             { name: "Background Color", variable: "$base-background-color", value: "#fff" },
             { name: "Text Color", variable: "$base-color", value: "#000" },
             { name: "Link Color", variable: "$link-color", value: "#4a87ee"}
         ];
 
-        // color variables
+        // Color variables
         $scope.colors = [
             { name: "light", variable: "$light", value: "#fff" },
             { name: "stable", variable: "$stable", value: "#f8f8f8"},
@@ -25,15 +27,17 @@ angular.module("projectsApp")
             { name: "dark", variable: "$dark", value: "#444"  }
         ];
 
-        // font variables
+        // Font variables
         $scope.fonts = [
             {name: "Base - font size", variable: "$font-size-base", value: "14px"},
             {name: "Large - font size", variable: "$font-size-large", value: "18px"},
             {name: "Small - font size", variable: "$font-size-small", value: "11px"}
         ];
 
+        // collect all data together
         $scope.data = _.union($scope.globals, $scope.colors, $scope.fonts);
 
+        // make copies for revert case
         var globalsCopy = angular.copy($scope.globals);
         var colorsCopy = angular.copy($scope.colors);
         var fontsCopy = angular.copy($scope.fonts);
@@ -83,24 +87,25 @@ angular.module("projectsApp")
         };
 
 
-        // download css
+        // download css file compiled
         $scope.download = function () {
             var data = _.union($scope.globals, $scope.colors, $scope.fonts);
             Compiler.post(data)
                 .success(function (response) {
-                    var id = response.id;
-                    console.log(id);
                     if (response.success == true) {
-                        // create new A element and self click to download
-                        var hiddenElement = document.createElement('a');
-                        hiddenElement.href = '/api/compile/' + id;
+                        var id = response.id;
+                        console.log(id);
+
+                        var hiddenElement = document.createElement('a'); // create new A element and self click to download
+                        hiddenElement.href = '/api/compile/download/' + id;
                         hiddenElement.target = '_blank';
                         hiddenElement.download = 'ionic.app.css';
-                        // hiddenElement.click();
+                        hiddenElement.click();
                     }
                 })
                 .error(function (error) {
-
+                    console.log(error);
+                    alert("An error occurred : ", error);
                 })
         };
 
