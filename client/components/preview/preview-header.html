@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="http://code.ionicframework.com/nightly/css/ionic.min.css">
+    <link id="ionic-css" rel="stylesheet" href="/">
+
+    <script src="http://code.ionicframework.com/nightly/js/ionic.bundle.min.js"></script>
+</head>
+<body ng-app="starter">
+
+<ion-pane>
+    <ion-header-bar class="bar-brand bar-light">
+        <h1 class="title">bar-light</h1>
+    </ion-header-bar>
+    <ion-content class="has-header">
+
+        <div class="bar bar-header bar-stable" style="position: relative; top: 20px">
+            <h1 class="title">bar-stable</h1>
+        </div>
+
+        <div class="bar bar-header bar-positive" style="position: relative; top: 40px">
+            <h1 class="title">bar-positive</h1>
+        </div>
+
+        <div class="bar bar-header bar-calm" style="position: relative; top: 60px">
+            <h1 class="title">bar-calm</h1>
+        </div>
+
+        <div class="bar bar-header bar-balanced" style="position: relative; top: 80px">
+            <h1 class="title">bar-balanced</h1>
+        </div>
+
+        <div class="bar bar-header bar-energized" style="position: relative; top: 100px">
+            <h1 class="title">bar-energized</h1>
+        </div>
+
+        <div class="bar bar-header bar-assertive" style="position: relative; top: 120px">
+            <h1 class="title">bar-assertive</h1>
+        </div>
+
+        <div class="bar bar-header bar-royal" style="position: relative; top: 140px">
+            <h1 class="title">bar-royal</h1>
+        </div>
+
+        <div class="bar bar-header bar-dark" style="position: relative; top: 160px">
+            <h1 class="title">bar-dark</h1>
+        </div>
+
+    </ion-content>
+</ion-pane>
+<script>
+    angular.module('starter', ['ionic']);
+
+    var css = document.getElementById('ionic-css');
+    window.IonicThemer = {
+        update: function (colors) {
+            var args = [];
+            for (var i = 0; i < colors.length; i++) {
+                args.push(encodeURIComponent(colors[i].variable) + "=" + encodeURIComponent(colors[i].value));
+            }
+            var path = args.join('&');
+            var newUrl = '/api/compile/live/ionic.css?' + path;
+            css.setAttribute('href', newUrl);
+        }
+    }
+</script>
+</body>
+</html>

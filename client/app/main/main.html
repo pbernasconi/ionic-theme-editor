@@ -1,172 +1,187 @@
 <div class="content">
 
-    <div class="side-panel">
-        <header>
-            <img src="../assets/images/logo-pack/ionic-logo-white.svg" class="side-panel-logo">
+<div class="side-panel">
+    <header>
+        <img src="../assets/images/logo-pack/ionic-logo-white.svg" class="side-panel-logo">
 
-            <div class="side-panel-title">Customizer</div>
-        </header>
+        <div class="side-panel-title">Customizer</div>
+    </header>
 
-        <section>
-            <div class="side-section-download">
-                <button class="btn btn-download" ng-click="download()">Download Theme</button>
+    <section>
+        <div class="side-section-download">
+            <button class="btn btn-download" ng-click="download()">Download Theme</button>
+        </div>
+        <div class="side-section">
+
+        </div>
+        <div class="side-section">
+            <div class="side-section-header">
+                <h4>Globals</h4>
+                <a class="btn-revert" ng-click="revert('globals')">
+                    <i class="icon icon-lg ion-ios7-refresh-empty"></i>
+                </a>
             </div>
-            <div class="side-section">
+            <ul>
+                <li ng-repeat="item in globals" ng-mouseover="show = true" ng-mouseleave="show = false">
+                    {{item.name}}
+                    <spectrum-colorpicker ng-model="item.value"
+                                          options="{showInput: true, showAlpha: true, clickoutFiresChange: true, showInitial: true}"
+                                          format="'hex'"
+                                          ng-style="{'background-color': item.value };">
+                    </spectrum-colorpicker>
+                    <span ng-if="show == true" class="section-color-preview" ng-bind="item.value"></span>
+                </li>
+            </ul>
 
+        </div>
+        <div class="side-section">
+            <div class="side-section-header">
+                <h4>Colors</h4>
+                <button class="btn-revert" ng-click="revert('colors')">
+                    <i class="icon icon-lg ion-ios7-refresh-empty"></i>
+                </button>
             </div>
-            <div class="side-section">
-                <div class="side-section-header">
-                    <h4>Globals</h4>
-                    <a class="btn-revert" ng-click="revert('globals')">
-                        <i class="icon icon-lg ion-ios7-refresh-empty"></i>
-                    </a>
-                </div>
-                <ul>
-                    <li ng-repeat="item in globals" ng-mouseover="show = true" ng-mouseleave="show = false">
-                        {{item.name}}
-                        <spectrum-colorpicker ng-model="item.value"
-                                              options="{showInput: true, showAlpha: true, clickoutFiresChange: true, showInitial: true}"
-                                              format="'hex'"
-                                              ng-style="{'background-color': item.value };">
-                        </spectrum-colorpicker>
-                        <span ng-if="show == true" class="section-color-preview" ng-bind="item.value"></span>
-                    </li>
-                </ul>
+            <ul>
+                <li ng-repeat="item in colors" ng-mouseover="show = true" ng-mouseleave="show = false">
+                    {{item.name}}
+                    <spectrum-colorpicker ng-model="item.value"
+                                          options="{showInput: true, showAlpha: true, clickoutFiresChange: true, showInitial: true}"
+                                          format="'hex'"
+                                          ng-style="{'background-color': item.value };">
+                    </spectrum-colorpicker>
+                    <span ng-if="show == true" class="section-color-preview" ng-bind="item.value"></span>
+                </li>
+            </ul>
+        </div>
 
+        <div class="side-section">
+            <div class="side-section-header">
+                <h4>Fonts</h4>
+                <button class="btn-revert" ng-click="revert('fonts')">
+                    <i class="icon icon-lg ion-ios7-refresh-empty"></i>
+                </button>
             </div>
-            <div class="side-section">
-                <div class="side-section-header">
-                    <h4>Colors</h4>
-                    <button class="btn-revert" ng-click="revert('colors')">
-                        <i class="icon icon-lg ion-ios7-refresh-empty"></i>
-                    </button>
-                </div>
-                <ul>
-                    <li ng-repeat="item in colors" ng-mouseover="show = true" ng-mouseleave="show = false">
-                        {{item.name}}
-                        <spectrum-colorpicker ng-model="item.value"
-                                              options="{showInput: true, showAlpha: true, clickoutFiresChange: true, showInitial: true}"
-                                              format="'hex'"
-                                              ng-style="{'background-color': item.value };">
-                        </spectrum-colorpicker>
-                        <span ng-if="show == true" class="section-color-preview" ng-bind="item.value"></span>
-                    </li>
-                </ul>
-            </div>
+            <ul>
+                <li ng-repeat="item in fonts">
+                    {{item.name}}
+                    <input type="text" class="side-section-input" ng-model="item.value">
+                </li>
+            </ul>
 
-            <div class="side-section">
-                <div class="side-section-header">
-                    <h4>Fonts</h4>
-                    <button class="btn-revert" ng-click="revert('fonts')">
-                        <i class="icon icon-lg ion-ios7-refresh-empty"></i>
-                    </button>
-                </div>
-                <ul>
-                    <li ng-repeat="item in fonts">
-                        {{item.name}}
-                        <input type="text" class="side-section-input" ng-model="item.value">
-                    </li>
-                </ul>
+        </div>
 
-            </div>
+        <div class="side-section-footer">
+            <h4>Made with love Paolo Bernasconi</h4>
+        </div>
+    </section>
+</div>
 
-            <div class="side-section-footer">
-                <h4>Made with love Paolo Bernasconi</h4>
-            </div>
-        </section>
-    </div>
+<div class="main-panel">
+    <ul class="main-panel-tabs">
+        <li ng-click="setActiveTab(0)" ng-class="{'active': activeTab == 0}">Components</li>
+        <li ng-click="setActiveTab(1)" ng-class="{'active': activeTab == 1}">Phone View</li>
+        <li ng-click="setActiveTab(2)" ng-class="{'active': activeTab == 2}">Examples</li>
+        <li class="tabs-left">
+            <button class="btn-login" ng-click="loginGithub()">Login <i class="icon ion-social-github fa-lg"></i></button>
+        </li>
+    </ul>
+    <div class="main-panel-view container-fluid">
+        <div ng-if="activeTab == 0">
+            <ul>
+                <li class="preview-card">
+                    <div class="card-header">Header</div>
 
-    <div class="main-panel">
-        <ul class="main-panel-tabs">
-            <li ng-click="setActiveTab(0)" ng-class="{'active': activeTab == 0}">Components</li>
-            <li ng-click="setActiveTab(1)" ng-class="{'active': activeTab == 1}">Phone View</li>
-            <li ng-click="setActiveTab(2)" ng-class="{'active': activeTab == 2}">Examples</li>
-            <li class="tabs-left">
-                <button class="btn-login" ng-click="loginGithub()">Login <i class="icon ion-social-github fa-lg"></i></button>
-            </li>
-        </ul>
-        <div class="main-panel-view">
-            <div ng-if="activeTab == 0">
-                <ul>
-                    <li class="preview-card">
-                        <div class="card-header">Header</div>
-
-                        <div class="card-content">
-                            <div class="bar bar-header bar-positive">
-                                <h1 class="title">bar-positive</h1>
-                            </div>
-                        </div>
-                    </li>
-
-                    <li class="preview-card">
-                        <div class="card-header">Header</div>
-
-                        <div class="card-content">
-                            <div class="bar bar-header bar-positive">
-                                <h1 class="title">bar-positive</h1>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="preview-card">
-                        <div class="card-header">Header</div>
-
-                        <div class="card-content">
-                            <div class="bar bar-header bar-positive">
-                                <h1 class="title">bar-positive</h1>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="preview-card">
-                        <div class="card-header">Header</div>
-
-                        <div class="card-content">
-                            <div class="bar bar-header bar-positive">
-                                <h1 class="title">bar-positive</h1>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="preview-card">
-                        <div class="card-header">Header</div>
-
-                        <div class="card-content">
-                            <div class="bar bar-header bar-positive">
-                                <h1 class="title">bar-positive</h1>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="preview-card">
-                        <div class="card-header">Header</div>
-
-                        <div class="card-content">
-                            <div class="bar bar-header bar-positive">
-                                <h1 class="title">bar-positive</h1>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="preview-card">
-                        <div class="card-header">Header</div>
-
-                        <div class="card-content">
-                            <div class="bar bar-header bar-positive">
-                                <h1 class="title">bar-positive</h1>
-                            </div>
-                        </div>
-                    </li>
-                </ul>
-            </div>
-            <div ng-if="activeTab == 1">
-                <div class="row">
-                    <div class="col-sm-4">
-                        <div class="device-bg">
-                            <iframe class="device-screen ionic" theme="data" src="../components/preview/preview.html"></iframe>
+                    <div class="card-content">
+                        <div class="bar bar-header bar-positive">
+                            <h1 class="title">bar-positive</h1>
                         </div>
                     </div>
-                    <div class="col-sm-4">
+                </li>
+
+                <li class="preview-card">
+                    <div class="card-header">Header</div>
+
+                    <div class="card-content">
+                        <div class="bar bar-header bar-positive">
+                            <h1 class="title">bar-positive</h1>
+                        </div>
+                    </div>
+                </li>
+                <li class="preview-card">
+                    <div class="card-header">Header</div>
+
+                    <div class="card-content">
+                        <div class="bar bar-header bar-positive">
+                            <h1 class="title">bar-positive</h1>
+                        </div>
+                    </div>
+                </li>
+                <li class="preview-card">
+                    <div class="card-header">Header</div>
+
+                    <div class="card-content">
+                        <div class="bar bar-header bar-positive">
+                            <h1 class="title">bar-positive</h1>
+                        </div>
+                    </div>
+                </li>
+                <li class="preview-card">
+                    <div class="card-header">Header</div>
+
+                    <div class="card-content">
+                        <div class="bar bar-header bar-positive">
+                            <h1 class="title">bar-positive</h1>
+                        </div>
+                    </div>
+                </li>
+                <li class="preview-card">
+                    <div class="card-header">Header</div>
+
+                    <div class="card-content">
+                        <div class="bar bar-header bar-positive">
+                            <h1 class="title">bar-positive</h1>
+                        </div>
+                    </div>
+                </li>
+                <li class="preview-card">
+                    <div class="card-header">Header</div>
+
+                    <div class="card-content">
+                        <div class="bar bar-header bar-positive">
+                            <h1 class="title">bar-positive</h1>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div ng-if="activeTab == 1">
+            <div ng-show="iframeLoaded == false" ng-cloak>
+                <div class="spinner-background">
+                    <div class="spinner">
+                        <div class="double-bounce1"></div>
+                        <div class="double-bounce2"></div>
+                    </div>
+                </div>
+            </div>
+            <div ng-show="iframeLoaded == true" ng-cloak style="padding: 40px;">
+                <div class="row">
+                    <div class="col-sm-4 col-centered">
+                        <h4 class="device-header">Header Bar</h4>
+
+                        <div class="device-bg">
+                            <iframe class="device-screen ionic" on-load="iframeCallback()" theme="data" src="../components/preview/preview-header.html"></iframe>
+                        </div>
+                    </div>
+                    <div class="col-sm-4 col-centered">
+                        <h4 class="device-header">Button</h4>
+
                         <div class="device-bg">
                             <iframe class="device-screen ionic" theme="data" src="../components/preview/preview-buttons.html"></iframe>
                         </div>
                     </div>
-                    <div class="col-sm-4">
+                    <div class="col-sm-4 col-centered">
+                        <h4 class="device-header">List</h4>
+
                         <div class="device-bg">
                             <iframe class="device-screen ionic" theme="data" src="../components/preview/preview-list.html"></iframe>
                         </div>
@@ -175,16 +190,22 @@
 
                 <div class="row">
                     <div class="col-sm-4">
+                        <h4 class="device-header">From</h4>
+
                         <div class="device-bg">
                             <iframe class="device-screen ionic" theme="data" src="../components/preview/preview-form.html"></iframe>
                         </div>
                     </div>
                     <div class="col-sm-4">
+                        <h4 class="device-header">Tabs</h4>
+
                         <div class="device-bg">
                             <iframe class="device-screen ionic" theme="data" src="../components/preview/preview-tabs.html"></iframe>
                         </div>
                     </div>
                     <div class="col-sm-4">
+                        <h4 class="device-header">Card</h4>
+
                         <div class="device-bg">
                             <iframe class="device-screen ionic" theme="data" src="../components/preview/preview-card.html"></iframe>
                         </div>
@@ -192,10 +213,12 @@
                 </div>
             </div>
 
-            <div ng-if="activeTab == 2">
-                Examples tab
-            </div>
-
         </div>
+
+        <div ng-if="activeTab == 2">
+            Examples tab
+        </div>
+
     </div>
+</div>
 </div>

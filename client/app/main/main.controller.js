@@ -1,9 +1,9 @@
 "use strict";
 
 angular.module("projectsApp")
-    .controller("MainCtrl", function ($scope, Compiler) {
+    .controller("MainCtrl", function ($scope, $timeout, Compiler) {
         $scope.activeTab = 1;
-
+        $scope.iframeLoaded = false;
 
         // global variables
         $scope.globals = [
@@ -39,6 +39,7 @@ angular.module("projectsApp")
         var fontsCopy = angular.copy($scope.fonts);
 
 
+        // revert to original data with switch - case
         $scope.revert = function (list) {
             switch (list) {
                 case "globals" :
@@ -64,10 +65,25 @@ angular.module("projectsApp")
             }
         };
 
+        // set the active tab
         $scope.setActiveTab = function (index) {
+            if (index == 1) {
+                $scope.iframeLoaded = false;
+                $scope.iframeCallback();
+            }
             return $scope.activeTab = index;
         };
 
+
+        // iframe loaded
+        $scope.iframeCallback = function () {
+            $timeout(function () {
+                $scope.iframeLoaded = true;
+            }, 1000);
+        };
+
+
+        // download css
         $scope.download = function () {
             var data = _.union($scope.globals, $scope.colors, $scope.fonts);
             Compiler.post(data)
@@ -75,6 +91,7 @@ angular.module("projectsApp")
                     var id = response.id;
                     console.log(id);
                     if (response.success == true) {
+                        // create new A element and self click to download
                         var hiddenElement = document.createElement('a');
                         hiddenElement.href = '/api/compile/' + id;
                         hiddenElement.target = '_blank';

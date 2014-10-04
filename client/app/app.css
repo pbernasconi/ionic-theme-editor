@@ -47,6 +47,11 @@ ul {
     list-style: none;
 }
 
+.row {
+    margin: 0;
+    margin-bottom: 30px;
+}
+
 /**
  * Side-panel
  */
@@ -115,9 +120,10 @@ ul {
     -webkit-transition: all 0.30s ease-in-out;
     -moz-transition: all 0.30s ease-in-out;
     -ms-transition: all 0.30s ease-in-out;
-    -o-transition: all 0.30s ease-in-out;}
+    -o-transition: all 0.30s ease-in-out;
+}
 
-.side-panel .btn-download:hover , .side-panel .btn-download:focus {
+.side-panel .btn-download:hover, .side-panel .btn-download:focus {
     outline: none;
     border: 2px solid #4B8BF4;
     color: #4B8BF4;
@@ -313,14 +319,15 @@ ul {
 /* Main - section */
 
 .main-panel .main-panel-view {
-    padding: 20px;
     position: absolute;
     top: 60px;
     right: 0;
     bottom: 0;
     left: 0;
     overflow: auto;
+    width: 100%;
 }
+
 
 .main-panel-view .preview-card {
     height: 150px;
@@ -343,25 +350,42 @@ ul {
     padding: 5px;
 }
 
+
+
+
 /* Device preview */
+
+.device-header {
+    text-align: center;
+}
 
 .device-bg {
     background-image: url("../assets/images/device.png");
     background-size: 243px 528px;
     height: 528px;
     width: 243px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .device-screen {
-    position: absolute;
+    position: relative;
     top: 69px;
-    left: 23px;
+    left: 8px;
     z-index: 0;
-    width: 227px;
-    height: 384px;
-    border: 1px solid #22272d;
+    width: 341px;
+    height: 576px;
+    border: 2px solid #22272d;
     background-color: white;
+    -ms-zoom: 0.665;
+    -moz-transform: scale(0.665);
+    -moz-transform-origin: 0 0;
+    -o-transform: scale(0.665);
+    -o-transform-origin: 0 0;
+    -webkit-transform: scale(0.665);
+    -webkit-transform-origin: 0 0;
 }
+
 
 /*
  * Other
@@ -372,6 +396,70 @@ ul {
     line-height: 1;
 }
 
-iframe #codepen-footer {
-    display: none !important;
+/*
+ * Spinkit
+ */
+
+.spinner-background {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background: rgba(255,255,255,0.33);
+    background: -moz-radial-gradient(center, ellipse cover, rgba(255,255,255,0.33) 0%, rgba(255,255,255,0.32) 6%, rgba(75,140,244,0.17) 100%);
+    background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, rgba(255,255,255,0.33)), color-stop(6%, rgba(255,255,255,0.32)), color-stop(100%, rgba(75,140,244,0.17)));
+    background: -webkit-radial-gradient(center, ellipse cover, rgba(255,255,255,0.33) 0%, rgba(255,255,255,0.32) 6%, rgba(75,140,244,0.17) 100%);
+    background: -o-radial-gradient(center, ellipse cover, rgba(255,255,255,0.33) 0%, rgba(255,255,255,0.32) 6%, rgba(75,140,244,0.17) 100%);
+    background: -ms-radial-gradient(center, ellipse cover, rgba(255,255,255,0.33) 0%, rgba(255,255,255,0.32) 6%, rgba(75,140,244,0.17) 100%);
+    background: radial-gradient(ellipse at center, rgba(255,255,255,0.33) 0%, rgba(255,255,255,0.32) 6%, rgba(75,140,244,0.17) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#4b8cf4', GradientType=1 );
 }
+
+.spinner {
+    width: 40px;
+    height: 40px;
+    position: relative;
+    padding: 10px;
+    margin-top: auto;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 300px;
+}
+
+.double-bounce1, .double-bounce2 {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background-color: #4B8BF4;
+    opacity: 0.6;
+    position: absolute;
+    top: 0;
+    left: 0;
+    -webkit-animation: bounce 2.0s infinite ease-in-out;
+    animation: bounce 2.0s infinite ease-in-out;
+}
+
+.double-bounce2 {
+    -webkit-animation-delay: -1.0s;
+    animation-delay: -1.0s;
+}
+
+@-webkit-keyframes bounce {
+    0%, 100% {
+        -webkit-transform: scale(0.0)
+    }
+    50% {
+        -webkit-transform: scale(1.0)
+    }
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: scale(0.0);
+        -webkit-transform: scale(0.0);
+    }
+    50% {
+        transform: scale(1.0);
+        -webkit-transform: scale(1.0);
+    }
+}
+
