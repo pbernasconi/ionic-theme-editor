@@ -18,12 +18,12 @@ angular.module('projectsApp')
                     return $scope.callBack();
                 });
 
-                var updatePreview = _.debounce(function (colors) {
+                var updatePreview = function (colors) {
                     if (!cw) {
                         return;
                     }
                     cw.IonicThemer && cw.IonicThemer.update(colors);
-                }, 300);
+                };
 
                 $scope.$watch('theme', function (nv, ov) {
                     updatePreview(nv);

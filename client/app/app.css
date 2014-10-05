@@ -22,7 +22,7 @@
     url('../bower_components/font-awesome/fonts/fontawesome-webfont.woff?v=4.1.0') format('woff'),
     url('../bower_components/font-awesome/fonts/fontawesome-webfont.ttf?v=4.1.0') format('truetype'),
     url('../bower_components/font-awesome/fonts/fontawesome-webfont.svg?v=4.1.0#fontawesomeregular') format('svg');
-    font-weight: normal;
+    font-weight: lighter;
     font-style: normal;
 }
 
@@ -214,7 +214,6 @@ ul {
     outline: none;
 }
 
-
 .side-section-select {
     float: right;
     text-align: right;
@@ -330,6 +329,8 @@ ul {
 .main-panel-tabs .tabs-left > .btn-login {
     background-color: transparent;
     border: none;
+    color: white;
+    text-decoration: none;
 }
 
 .main-panel-tabs .tabs-left > .btn-login:hover,
@@ -351,7 +352,6 @@ ul {
     overflow-x: hidden;
 }
 
-
 .main-panel-view .preview-card {
     height: 150px;
     border-top: 3px solid #93969F;
@@ -372,9 +372,6 @@ ul {
 .preview-card .card-content {
     padding: 5px;
 }
-
-
-
 
 /* Device preview */
 
@@ -409,7 +406,6 @@ ul {
     -webkit-transform-origin: 0 0;
 }
 
-
 /*
  * Other
  */
@@ -427,14 +423,14 @@ ul {
     width: 100%;
     height: 100%;
     position: absolute;
-    background: rgba(255,255,255,0.33);
-    background: -moz-radial-gradient(center, ellipse cover, rgba(255,255,255,0.33) 0%, rgba(255,255,255,0.32) 6%, rgba(75,140,244,0.17) 100%);
-    background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, rgba(255,255,255,0.33)), color-stop(6%, rgba(255,255,255,0.32)), color-stop(100%, rgba(75,140,244,0.17)));
-    background: -webkit-radial-gradient(center, ellipse cover, rgba(255,255,255,0.33) 0%, rgba(255,255,255,0.32) 6%, rgba(75,140,244,0.17) 100%);
-    background: -o-radial-gradient(center, ellipse cover, rgba(255,255,255,0.33) 0%, rgba(255,255,255,0.32) 6%, rgba(75,140,244,0.17) 100%);
-    background: -ms-radial-gradient(center, ellipse cover, rgba(255,255,255,0.33) 0%, rgba(255,255,255,0.32) 6%, rgba(75,140,244,0.17) 100%);
-    background: radial-gradient(ellipse at center, rgba(255,255,255,0.33) 0%, rgba(255,255,255,0.32) 6%, rgba(75,140,244,0.17) 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#4b8cf4', GradientType=1 );
+    background: rgba(255, 255, 255, 0.33);
+    background: -moz-radial-gradient(center, ellipse cover, rgba(255, 255, 255, 0.33) 0%, rgba(255, 255, 255, 0.32) 6%, rgba(75, 140, 244, 0.17) 100%);
+    background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, rgba(255, 255, 255, 0.33)), color-stop(6%, rgba(255, 255, 255, 0.32)), color-stop(100%, rgba(75, 140, 244, 0.17)));
+    background: -webkit-radial-gradient(center, ellipse cover, rgba(255, 255, 255, 0.33) 0%, rgba(255, 255, 255, 0.32) 6%, rgba(75, 140, 244, 0.17) 100%);
+    background: -o-radial-gradient(center, ellipse cover, rgba(255, 255, 255, 0.33) 0%, rgba(255, 255, 255, 0.32) 6%, rgba(75, 140, 244, 0.17) 100%);
+    background: -ms-radial-gradient(center, ellipse cover, rgba(255, 255, 255, 0.33) 0%, rgba(255, 255, 255, 0.32) 6%, rgba(75, 140, 244, 0.17) 100%);
+    background: radial-gradient(ellipse at center, rgba(255, 255, 255, 0.33) 0%, rgba(255, 255, 255, 0.32) 6%, rgba(75, 140, 244, 0.17) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#4b8cf4', GradientType=1);
 }
 
 .spinner {
@@ -486,3 +482,133 @@ ul {
     }
 }
 
+/*
+ * Download Modal
+ */
+
+.ngdialog-content {
+    background: #ffffff !important;
+    border-radius: 1px !important;
+    border: 3px solid #4B8BF4;
+    color: #575859 !important;
+    margin: 0 auto;
+    max-width: 100%;
+    padding: 1em;
+    position: relative;
+    width: 550px !important;
+}
+
+.imodal {
+    width: 100%;
+}
+.imodal-title {
+    text-align: center;
+    padding-bottom : 20px;
+    border-bottom: 1px solid #ECF0F6;
+    margin-bottom: 20px;
+}
+
+.imodal-content {
+    padding: 20px;
+    width: 70%;
+    margin-right: auto;
+    margin-left: auto;
+    margin-bottom: 30px;
+}
+
+.imodal-content .input-group {
+    padding: 10px;
+}
+
+.imodal-content .input-group:first-child {
+    border-bottom: 1px solid #ECF0F6;
+}
+
+.imodal-content label {
+    margin-right: 15px;
+}
+
+.imodal-content input {
+    border: 1px solid #ECF0F6;
+    border-radius: 2px;
+    padding: 2px 8px;
+    -webkit-transition: all 0.30s ease-in-out;
+    -moz-transition: all 0.30s ease-in-out;
+    -ms-transition: all 0.30s ease-in-out;
+    -o-transition: all 0.30s ease-in-out;
+}
+
+.imodal-content input:focus, .imodal-content input:hover {
+    border: 1px solid #4B8BF4;
+    outline: none;
+}
+
+.imodal-buttons {
+    width: 100%;
+    margin: 0 auto;
+    display: inline-block;
+}
+
+.imodal .btn-modal {
+    width: 49%;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.imodal .btn-modal-cancel {
+    margin-left: 3px;
+    background: white;
+    border: 1px solid #ff4843;
+    color: #ff4843;
+    -webkit-transition: all 0.30s ease-in-out;
+    -moz-transition: all 0.30s ease-in-out;
+    -ms-transition: all 0.30s ease-in-out;
+    -o-transition: all 0.30s ease-in-out;
+}
+
+.imodal .btn-modal-cancel:hover, .imodal .btn-modal-cancel:focus {
+    outline: none;
+    border: 1px solid #ff4843;
+    color: white;
+    background-color: #ff4843;
+    -webkit-transition: all 0.30s ease-in-out;
+    -moz-transition: all 0.30s ease-in-out;
+    -ms-transition: all 0.30s ease-in-out;
+    -o-transition: all 0.30s ease-in-out;
+}
+
+.imodal .btn-modal-download {
+    background: #4B8BF4;
+    color: #fFF;
+    border: 1px solid #4B8BF4;
+    -webkit-transition: all 0.30s ease-in-out;
+    -moz-transition: all 0.30s ease-in-out;
+    -ms-transition: all 0.30s ease-in-out;
+    -o-transition: all 0.30s ease-in-out;
+}
+
+.imodal .btn-modal-download:hover, .imodal .btn-modal-download:focus {
+    outline: none;
+    border: 1px solid #4B8BF4;
+    color: #4B8BF4;
+    background-color: #FFFFFF;
+    -webkit-transition: all 0.30s ease-in-out;
+    -moz-transition: all 0.30s ease-in-out;
+    -ms-transition: all 0.30s ease-in-out;
+    -o-transition: all 0.30s ease-in-out;
+}
+
+
+.ngdialog.ngdialog-theme-default .ngdialog-close:before {
+    background: #4B8BF4;
+    border-radius: 0 !important;
+    color: white;
+    content: '\00D7';
+    right: 0;
+    top: -1px;
+}
+
+
+.ngdialog-close:hover:before {
+    color: rgb(255, 142, 155) !important;
+}

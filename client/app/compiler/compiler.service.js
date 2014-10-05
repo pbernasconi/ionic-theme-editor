@@ -7,8 +7,8 @@ angular.module('projectsApp')
             get: function (data) {
                 return $http.get('/api/compile/');
             },
-            post: function (data) {
-                return $http.post('/api/compile/', data);
+            post: function (data, cssType) {
+                return $http.post('/api/compile/' + cssType, data);
             }
         }
 

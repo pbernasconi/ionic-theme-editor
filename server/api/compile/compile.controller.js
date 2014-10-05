@@ -15,9 +15,11 @@ var shortId = require('shortid');
 // GET : download file, remove after success
 exports.download = function (req, res) {
     var id = req.params.id;
+    var filename = req.params.filename || "ionic.app.css";
+    console.log(req.params.filename);
     var file = "./server/ionic/tmp/ionic-" + id + ".app.css";
 
-    res.download(path.resolve(file), "ionic.app.css", function (err) {  // send file for download
+    res.download(path.resolve(file), filename, function (err) {  // send file for download
         if (err) {
             console.log(err);
             throw err;
@@ -37,9 +39,10 @@ exports.download = function (req, res) {
 // POST : Creates a new compile in the DB.
 exports.compile = function (req, res) {
     var postData = req.body;
+    var cssType = req.params.cssType;
     var uniqueID = shortId.generate(); // generate a unique ID for tmp file
     var stats = {};
-    var outputString = "";
+    var sassString = "";
 
     mkdirp('./server/ionic/tmp', function (err) { // create temporary folder
         if (err) {
@@ -48,23 +51,35 @@ exports.compile = function (req, res) {
         }
     });
 
+    console.log(cssType);
+
+    if (cssType != "nested" && cssType != "compressed") {
+        res.status(400).json({success: false, id: null, error: "Wrong CSS type"}).end();
+    }
+
+    sassString += "$ionicons-font-path: '../../../ionic/scss/fonts' !default;";
+    sassString += "$font-family-sans-serif: 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif !default;";
+    sassString += "$font-family-light-sans-serif:'Helvetica Neue-Light', 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif !default;"
+    sassString += "$font-family-serif: Georgia, 'Times New Roman', Times, serif !default;";
+    sassString += "$font-family-monospace:  Monaco, Menlo, Consolas, 'Courier New', monospace !default;";
+
     _.each(postData, function (each) { // create variables SASS compiler string
-        outputString += each.variable + ":  " + each.value + " !default;\n";
+        sassString += each.variable + ":  " + each.value + " !default;\n";
     });
 
-    outputString += "@import './server/ionic/scss/ionic';"; // import ionic into SASS compiler string
+    sassString += "@import './server/ionic/scss-prod/ionic';"; // import ionic into SASS compiler string
 
     sass.renderFile({
-        data: outputString,
+        data: sassString,
         success: function (css) {
             res.status(200).json({success: true, id: uniqueID});
         },
         error: function (error) {
             console.log(error);
-            res.status(400).json({success: false, id: null});
+            res.status(400).json({success: false, id: null, error: error});
         },
         outFile: "./server/ionic/tmp/ionic-" + uniqueID + ".app.css",
-        outputStyle: 'nested',
+        outputStyle: cssType,
         stats: stats
     });
 };
@@ -86,7 +101,7 @@ exports.live = function (req, res) {
         sassString += key + ":  " + value + " !default;\n";
     });
 
-    sassString += "@import './server/ionic/scss/ionic';";
+    sassString += "@import './server/ionic/scss-live/ionic';";
     //sassString += "@function best-text-color($color) { @if (lightness( $color ) > 70) {@return #000000;} @else { @return #FFFFFF;}}";
     //sassString += ".bar {&.bar-brand { @include bar-style($brand, lighten($brand, 50%), best-text-color($brand));} }";
 

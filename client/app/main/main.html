@@ -9,7 +9,7 @@
 
     <section>
         <div class="side-section-download">
-            <button class="btn btn-download" ng-click="download()">Download Theme</button>
+            <button class="btn btn-download" ng-click="prepDownload()">Download Theme</button>
         </div>
         <div class="side-section">
             <div class="side-section-header">
@@ -89,18 +89,17 @@
         </div>
 
         <div class="side-section-footer">
-            <h4>Made with love Paolo Bernasconi</h4>
+            <h4>Made with love by <a href="https://github.com/pbernasconi/">Paolo Bernasconi</a></h4>
         </div>
     </section>
 </div>
 
 <div class="main-panel">
     <ul class="main-panel-tabs">
-        <li ng-click="setActiveTab(0)" ng-class="{'active': activeTab == 0}">Components</li>
         <li ng-click="setActiveTab(1)" ng-class="{'active': activeTab == 1}">Phone View</li>
-        <li ng-click="setActiveTab(2)" ng-class="{'active': activeTab == 2}">Examples</li>
+        <li ng-class="{'active': activeTab == 2}">Examples</li>
         <li class="tabs-left">
-            <button class="btn-login" ng-click="loginGithub()">Login <i class="icon ion-social-github fa-lg"></i></button>
+            <a class="btn-login" ng-click="loginGithub()" href="https://github.com/pbernasconi/ionic-theme-editor">Github <i class="icon ion-social-github fa-lg"></i></a>
         </li>
     </ul>
     <div class="main-panel-view">
@@ -187,45 +186,55 @@
                         <h4 class="device-header">Header Bar</h4>
 
                         <div class="device-bg">
-                            <iframe class="device-screen ionic" on-load="iframeCallback()" theme="data" src="../components/preview/preview-header.html"></iframe>
+                            <iframe class="device-screen ionic" on-load="iframeCallback()" theme="groupedVars" src="../components/preview/preview-header.html"></iframe>
                         </div>
                     </div>
                     <div class="col-md-4">
                         <h4 class="device-header">Button</h4>
 
                         <div class="device-bg">
-                            <iframe class="device-screen ionic" theme="data" src="../components/preview/preview-buttons.html"></iframe>
+                            <iframe class="device-screen ionic" theme="groupedVars" src="../components/preview/preview-buttons.html"></iframe>
                         </div>
                     </div>
                     <div class="col-md-4">
                         <h4 class="device-header">List</h4>
 
                         <div class="device-bg">
-                            <iframe class="device-screen ionic" theme="data" src="../components/preview/preview-list.html"></iframe>
+                            <iframe class="device-screen ionic" theme="groupedVars" src="../components/preview/preview-list.html"></iframe>
                         </div>
                     </div>
                 </div>
 
                 <div class="row">
                     <div class="col-sm-4">
-                        <h4 class="device-header">From</h4>
+                        <h4 class="device-header">Form</h4>
 
                         <div class="device-bg">
-                            <iframe class="device-screen ionic" theme="data" src="../components/preview/preview-form.html"></iframe>
+                            <iframe class="device-screen ionic" theme="groupedVars" src="../components/preview/preview-form.html"></iframe>
                         </div>
                     </div>
                     <div class="col-sm-4">
                         <h4 class="device-header">Tabs</h4>
 
                         <div class="device-bg">
-                            <iframe class="device-screen ionic" theme="data" src="../components/preview/preview-tabs.html"></iframe>
+                            <iframe class="device-screen ionic" theme="groupedVars" src="../components/preview/preview-tabs.html"></iframe>
                         </div>
                     </div>
                     <div class="col-sm-4">
                         <h4 class="device-header">Card</h4>
 
                         <div class="device-bg">
-                            <iframe class="device-screen ionic" theme="data" src="../components/preview/preview-card.html"></iframe>
+                            <iframe class="device-screen ionic" theme="groupedVars" src="../components/preview/preview-card.html"></iframe>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-4">
+                        <h4 class="device-header">Components</h4>
+
+                        <div class="device-bg">
+                            <iframe class="device-screen ionic" theme="groupedVars" src="../components/preview/preview-components.html"></iframe>
                         </div>
                     </div>
                 </div>
@@ -240,3 +249,31 @@
     </div>
 </div>
 </div>
+
+
+<script type="text/ng-template" id="downloadModal">
+    <div class="imodal">
+        <h1 class="imodal-title">Download CSS File</h1>
+
+        <div class="imodal-content">
+            <div class="input-group">
+                <label>File name</label>
+                <input type="text" ng-model="filename">
+            </div>
+
+            <div class="input-group">
+                <label style="margin-left: 30px;">Minimized</label>
+                <input type="radio" name="css-type" value="compressed" ng-model="cssType">
+
+                <label style="margin-left: 20px;">Nested</label>
+                <input type="radio" name="css-type" value="nested" ng-model="cssType">
+            </div>
+        </div>
+
+
+        <div class="imodal-buttons">
+            <button class="btn btn-modal btn-modal-cancel" ng-click="modalClose()">Cancel</button>
+            <button class="btn btn-modal btn-modal-download" ng-click="modalDownload()">Download</button>
+        </div>
+    </div>
+</script>

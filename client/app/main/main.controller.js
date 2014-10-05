@@ -1,7 +1,7 @@
 "use strict";
 
 angular.module("projectsApp")
-    .controller("MainCtrl", function ($scope, $timeout, Compiler) {
+    .controller("MainCtrl", function ($scope, $timeout, ngDialog, Compiler) {
 
         // initial variables
         $scope.activeTab = 1;
@@ -35,6 +35,7 @@ angular.module("projectsApp")
             {name: "Small - font size", variable: "$font-size-small", value: "11px", type: "pixel"}
         ];
 
+        // Padding variables
         $scope.padding = [
             { name: "Content Padding", variable: "$content-padding", value: "10px", type: "pixel"},
             { name: "Base - Vertical", variable: "$padding-base-vertical", value: "6px", type: "pixel"},
@@ -46,7 +47,7 @@ angular.module("projectsApp")
         ];
 
         // collect all data together
-        $scope.data = _.union($scope.globals, $scope.colors, $scope.fonts, $scope.padding);
+        $scope.groupedVars = _.union($scope.globals, $scope.colors, $scope.fonts, $scope.padding);
 
         // make copies for revert case
         var globalsCopy = angular.copy($scope.globals);
@@ -105,18 +106,31 @@ angular.module("projectsApp")
             }, 1000);
         };
 
+        $scope.prepDownload = function () {
+            ngDialog.open({
+                template: 'downloadModal',
+                data: {sassData: $scope.groupedVars},
+                controller: 'DownloadModal',
+                scope: $scope
+            })
+        };
+    })
 
-        // download css file compiled
-        $scope.download = function () {
-            var data = _.union($scope.globals, $scope.colors, $scope.fonts);
-            Compiler.post(data)
+    .controller("DownloadModal", function ($scope, ngDialog, Compiler) {
+
+        $scope.filename = "ionic.app.css";
+        $scope.cssType = "compressed";
+
+        var data = $scope.groupedVars;
+        $scope.modalDownload = function () {
+            Compiler.post(data, $scope.cssType)
                 .success(function (response) {
                     if (response.success == true) {
                         var id = response.id;
                         console.log(id);
 
                         var hiddenElement = document.createElement('a'); // create new A element and self click to download
-                        hiddenElement.href = '/api/compile/download/' + id;
+                        hiddenElement.href = '/api/compile/download/' + id + '/' + $scope.filename;
                         hiddenElement.target = '_blank';
                         hiddenElement.download = 'ionic.app.css';
                         hiddenElement.click();
@@ -128,4 +142,7 @@ angular.module("projectsApp")
                 })
         };
 
+        $scope.modalClose = function () {
+            ngDialog.close();
+        };
     });

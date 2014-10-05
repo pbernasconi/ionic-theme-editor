@@ -15,7 +15,9 @@
     <ion-content class="has-header">
 
         <ul class="list">
-
+            <div class="item item-divider">
+                Toggle
+            </div>
             <li class="item item-toggle">
                 HTML5
                 <label class="toggle toggle-assertive">
@@ -27,6 +29,16 @@
                 </label>
             </li>
 
+
+            <div class="item item-divider">
+                Checkbox
+            </div>
+            <li class="item item-checkbox">
+                <label class="checkbox">
+                    <input type="checkbox" ng-model="isChecked">
+                </label>
+                Flux Capacitor
+            </li>
             <li class="item item-checkbox">
                 <label class="checkbox">
                     <input type="checkbox">
@@ -34,6 +46,9 @@
                 Flux Capacitor
             </li>
 
+            <div class="item item-divider">
+                Radio
+            </div>
             <label class="item item-radio">
                 <input type="radio" name="group">
 
@@ -51,10 +66,17 @@
                 <i class="radio-icon ion-checkmark"></i>
             </label>
 
+            <div class="item item-divider">
+                Range
+            </div>
             <div class="item range range-positive">
                 <i class="icon ion-ios7-sunny-outline"></i>
                 <input type="range" name="volume" min="0" max="100" value="33">
                 <i class="icon ion-ios7-sunny"></i>
+            </div>
+
+            <div class="item item-divider">
+                Select
             </div>
             <label class="item item-input item-select">
                 <div class="input-label">

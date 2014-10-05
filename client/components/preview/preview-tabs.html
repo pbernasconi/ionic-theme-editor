@@ -14,21 +14,22 @@
     </ion-header-bar>
     <ion-content class="has-header has-tabs">
 
-        <div class="tabs tabs-icon-top">
-            <a class="tab-item">
-                <i class="icon ion-home"></i>
-                Home
-            </a>
-            <a class="tab-item">
-                <i class="icon ion-star"></i>
-                Favorites
-            </a>
-            <a class="tab-item">
-                <i class="icon ion-gear-a"></i>
-                Settings
-            </a>
-        </div>
     </ion-content>
+    <ion-tabs class="tabs-positive tabs-icon-only">
+
+        <ion-tab title="Home" icon-on="ion-ios7-filing" icon-off="ion-ios7-filing-outline">
+            <!-- Tab 1 content -->
+        </ion-tab>
+
+        <ion-tab title="About" icon-on="ion-ios7-clock" icon-off="ion-ios7-clock-outline">
+            <!-- Tab 2 content -->
+        </ion-tab>
+
+        <ion-tab title="Settings" icon-on="ion-ios7-gear" icon-off="ion-ios7-gear-outline">
+            <!-- Tab 3 content -->
+        </ion-tab>
+
+    </ion-tabs>
 </ion-pane>
 <script>
     angular.module('starter', ['ionic']);
