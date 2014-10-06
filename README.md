@@ -1,7 +1,7 @@
 [Ionic Theme Editor](http://ionic-theme-editor.herokuapp.com/)
 ==================
 
-![preview](https://github.com/pbernasconi/ionic-theme-editor/blob/master/Ionic-Theme-Editor.png)
+[![preview](https://github.com/pbernasconi/ionic-theme-editor/blob/master/Ionic-Theme-Editor.png)](http://ionic-theme-editor.herokuapp.com/)
 
 
 ## Website
