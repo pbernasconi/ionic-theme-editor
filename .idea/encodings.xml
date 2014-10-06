@@ -18,25 +18,11 @@
     <file url="file://$PROJECT_DIR$/client/components/preview/preview-tabs.html" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/client/index.html" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/dist/public/components/preview/preview-buttons.html" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/dist/public/components/preview/preview-buttons.html" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/dist/public/components/preview/preview-buttons.html" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/dist/public/components/preview/preview-card.html" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/dist/public/components/preview/preview-card.html" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/dist/public/components/preview/preview-card.html" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/dist/public/components/preview/preview-components.html" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/dist/public/components/preview/preview-components.html" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/dist/public/components/preview/preview-components.html" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/dist/public/components/preview/preview-form.html" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/dist/public/components/preview/preview-form.html" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/dist/public/components/preview/preview-form.html" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/dist/public/components/preview/preview-header.html" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/dist/public/components/preview/preview-header.html" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/dist/public/components/preview/preview-header.html" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/dist/public/components/preview/preview-list.html" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/dist/public/components/preview/preview-list.html" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/dist/public/components/preview/preview-list.html" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/dist/public/components/preview/preview-tabs.html" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/dist/public/components/preview/preview-tabs.html" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/dist/public/components/preview/preview-tabs.html" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/dist/public/index.html" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/dist/server/api/compile/compile.controller.js" charset="UTF-8" />
@@ -48,11 +34,9 @@
     <file url="file://$PROJECT_DIR$/server/ionic/scss-live/_action-sheet.scss" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/server/ionic/scss-live/_scaffolding.scss" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/server/ionic/scss-live/ionic.scss" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/server/ionic/scss-live/ionicLive.scss" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/server/ionic/scss-prod/_action-sheet.scss" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/server/ionic/scss-prod/_scaffolding.scss" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/server/ionic/scss-prod/ionic.scss" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/server/ionic/scss-prod/ionicLive.scss" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/server/ionic/scss_test/_action-sheet.scss" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/server/routes.js" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/../ng-cordova/src/plugins/network.js" charset="UTF-8" />
