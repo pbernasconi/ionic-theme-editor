@@ -10,7 +10,7 @@
         <div class="sub-header">
             <div class="button-row">
                 <a ng-click="setButtonBar(0)" ng-class="{'selected' : isButtonBar(0)}">Customize</a>
-                <a ng-click="setButtonBar(1)" ng-class="{'selected' : isButtonBar(1)}">Preset</a>
+                <a ng-class="{'selected' : isButtonBar(1)}">Preset themes</a> <!--  ng-click="setButtonBar(1)" -->
             </div>
         </div>
 
@@ -121,7 +121,7 @@
     <div class="main-panel">
         <ul class="main-panel-tabs">
             <li ng-click="setActiveTab(1)" ng-class="{'active': activeTab == 1}">Phone View</li>
-            <li ng-class="{'active': activeTab == 2}">Examples</li>
+            <li ng-class="{'active': activeTab == 2}">Components</li>
             <li class="tabs-left">
                 <a class="btn-login" ng-click="loginGithub()" href="https://github.com/pbernasconi/ionic-theme-editor">Github <i class="icon ion-social-github fa-lg"></i></a>
             </li>
@@ -282,7 +282,7 @@
         <div class="imodal-content">
             <div class="input-group">
                 <label>File name</label>
-                <input type="text" ng-model="filename">
+                <input type="text" ng-model="filename" autoFocus>
             </div>
 
             <div class="input-group">

@@ -1,7 +1,8 @@
 "use strict";
 
 angular.module("projectsApp")
-    .controller("MainCtrl", function ($scope, $timeout, ngDialog, Compiler) {
+
+    .controller("MainCtrl", function ($scope, $timeout, ngDialog) {
 
         // initial variables
         $scope.activeTab = 1;
@@ -61,6 +62,7 @@ angular.module("projectsApp")
             $scope.selectedButtonBar = index;
         };
 
+        // return index of selected button bar
         $scope.isButtonBar = function (index) {
             return index === $scope.selectedButtonBar;
         };
@@ -116,6 +118,7 @@ angular.module("projectsApp")
             }, 1000);
         };
 
+        // open modal with download button
         $scope.prepDownload = function () {
             ngDialog.open({
                 template: 'downloadModal',
@@ -126,6 +129,8 @@ angular.module("projectsApp")
         };
     })
 
+
+    // Download Controller for modal
     .controller("DownloadModal", function ($scope, ngDialog, Compiler) {
 
         $scope.filename = "ionic.app.css";

@@ -94,9 +94,11 @@ ul {
 .side-panel > header .logo-title {
     float: left;
     margin-left: 20px;
-    font-weight: 300;
-    font-size: 20px;
-    letter-spacing: 1px;
+    font-weight: 200;
+    font-size: 16px;
+    letter-spacing: 2px;
+    border-top: 2px solid transparent;
+    text-transform: uppercase;
 }
 
 /**
@@ -127,8 +129,12 @@ ul {
     text-decoration: none;
     height: 30px;
     line-height: 30px;
-    width: 120px;
-    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 200;
+    width: 130px;
+    font-size: 12px;
+    cursor: pointer;
     -webkit-transition: 200ms;
     -moz-transition: 200ms;
     -ms-transition: 200ms;
@@ -145,7 +151,6 @@ ul {
     margin-left: -5px;
     border-radius: 0 5px 5px 0;
 }
-
 
 .sub-header .button-row a.selected {
     background-color: #575859;
@@ -177,8 +182,11 @@ ul {
     width: 100%;
     background-color: #4B8BF4;
     color: #fFF;
-    font-size: 17px;
-    border: 2px solid #4B8BF4;
+    font-size: 15px;
+    letter-spacing: 1px;
+    font-weight: 200;
+    text-transform: uppercase;
+    border: 1px solid #4B8BF4;
     -webkit-transition: all 0.20s ease-in-out;
     -moz-transition: all 0.20s ease-in-out;
     -ms-transition: all 0.20s ease-in-out;
@@ -187,7 +195,7 @@ ul {
 
 .side-panel .btn-download:hover, .side-panel .btn-download:focus {
     outline: none;
-    border: 2px solid #4B8BF4;
+    border: 1px solid #4B8BF4;
     color: #4B8BF4;
     background-color: #FFFFFF;
     -webkit-transition: all 0.20s ease-in-out;
@@ -278,7 +286,7 @@ ul {
     border: 1px solid #ECF0F6;
     border-radius: 2px;
     padding-right: 5px;
-    padding-top: 2px;
+    padding-top: 3px;
     padding-bottom: 2px;
     -webkit-transition: all 0.30s ease-in-out;
     -moz-transition: all 0.30s ease-in-out;
@@ -309,9 +317,46 @@ ul {
     letter-spacing: 1px;
 }
 
-/*
- * Color-picker
+/****************************************************
+ * COLOR PICKER
  */
+
+.sp-container {
+    background-color: #EFF1F5;
+    border: 1px solid #eceef0;
+    border-radius: 2px;
+}
+
+.sp-picker-container {
+    border: none;
+}
+
+
+.sp-color {
+    border: none;
+    border-radius: 2px;
+}
+
+.sp-hue {
+    border: none;
+    border-radius: 2px;
+}
+
+.sp-alpha-inner {
+    border: none;
+}
+
+.sp-slider {
+    border-color: #575859;
+    border-radius: 1px;
+    opacity: 1;
+}
+
+.sp-alpha-handle {
+    border-color: #575859;
+    border-radius: 1px;
+    opacity: 1;
+}
 
 .sp-replacer {
     float: right;
@@ -334,8 +379,63 @@ ul {
     display: none;
 }
 
-/**
- * Main-panel
+input.sp-input {
+    background-color: #ffFFFF;
+    border: 1px solid #4B8BF4;
+    border-radius: 2px;
+    padding: 5px;
+    -webkit-transition: all 0.30s ease-in-out;
+    -moz-transition: all 0.30s ease-in-out;
+    -ms-transition: all 0.30s ease-in-out;
+    -o-transition: all 0.30s ease-in-out;
+}
+
+input.sp-input:focus, input.sp-input:hover {
+    outline: none;
+    border: 1px solid #4B8BF4;
+}
+
+.sp-cancel {
+    background: #ff4843;
+    text-shadow: none;
+    color: #fFF !important;
+    border-radius: 3px;
+    padding: 4px;
+    letter-spacing: 1px;
+    font-size: 11px;
+    font-weight: 200;
+    text-transform: uppercase;
+    border: 1px solid #ff4843;
+}
+
+.sp-cancel:hover {
+    background: #FFF;
+    text-decoration: none;
+    color: #ff4843 !important;
+    border: 1px solid #ff4843;
+
+}
+
+.sp-button-container > button {
+    background: #4B8BF4;
+    text-shadow: none;
+    color: #fFF;
+    letter-spacing: 1px;
+    font-size: 11px;
+    font-weight: 200;
+    text-transform: uppercase;
+    border: 1px solid #4B8BF4;
+}
+
+.sp-button-container > button:hover {
+    border: 1px solid #4B8BF4;
+    background: #FFF !important;
+    color: #4B8BF4;
+    text-shadow: none;
+}
+
+/****************************************************
+ * MAIN PANEL
  */
 
 .main-panel {
@@ -397,8 +497,6 @@ ul {
     outline: none;
 }
 
-/* Main - section */
-
 .main-panel .main-panel-view {
     position: absolute;
     top: 55px;
@@ -431,7 +529,9 @@ ul {
     padding: 5px;
 }
 
-/* Device preview */
+/****************************************************
+ * DEVICE PREVIEW
+ */
 
 .device-header {
     text-align: center;
@@ -464,17 +564,8 @@ ul {
     -webkit-transform-origin: 0 0;
 }
 
-/*
- * Other
- */
-
-.icon-lg {
-    font-size: 1.75em;
-    line-height: 1;
-}
-
-/*
- * Spinkit
+/****************************************************
+ * SPINNER
  */
 
 .spinner-background {
@@ -539,8 +630,8 @@ ul {
     }
 }
 
-/*
- * Download Modal
+/****************************************************
+ * DOWNLOAD MODAL
  */
 
 .ngdialog-content {
@@ -666,5 +757,10 @@ ul {
 }
 
 .ngdialog-close:hover:before {
-    color: rgb(255, 142, 155) !important;
+    color: #575859 !important;
+}
+
+.icon-lg {
+    font-size: 1.75em;
+    line-height: 1;
 }
