@@ -77,25 +77,23 @@ ul {
     height: 55px;
     line-height: 55px;
     color: white;
-    background-color: #4B8BF4;
+    background-color: #6795F5;
     z-index: 10;
-    box-shadow: -2px 4px 8px rgba(255, 255, 255, 0.7);
-    -webkit-box-shadow: -2px 4px 8px rgba(255, 255, 255, 0.7);
 }
 
 .side-panel > header .logo {
     float: left;
     padding-left: 10px;
     height: 45px;
-    padding-top: 7px;
+    padding-top: 8px;
     vertical-align: middle;
 }
 
 .side-panel > header .logo-title {
     float: left;
-    margin-left: 20px;
+    margin-left: 15px;
     font-weight: 200;
-    font-size: 16px;
+    font-size: 15px;
     letter-spacing: 2px;
     border-top: 2px solid transparent;
     text-transform: uppercase;
@@ -115,6 +113,9 @@ ul {
     width: 100%;
     border-bottom: 1px solid #ECF0F6;
     z-index: 10;
+    box-shadow: -2px 4px 8px rgba(250, 250, 250, 0.7);
+    -webkit-box-shadow: -2px 4px 8px rgba(250, 250, 250, 0.7);
+    -moz-box-shadow: -2px 4px 8px rgba(250, 250, 250, 0.7);
 }
 
 .sub-header .button-row {
@@ -180,13 +181,13 @@ ul {
 
 .side-panel .btn-download {
     width: 100%;
-    background-color: #4B8BF4;
+    background-color: #6795F5;
     color: #fFF;
     font-size: 15px;
     letter-spacing: 1px;
     font-weight: 200;
     text-transform: uppercase;
-    border: 1px solid #4B8BF4;
+    border: 1px solid #6795F5;
     -webkit-transition: all 0.20s ease-in-out;
     -moz-transition: all 0.20s ease-in-out;
     -ms-transition: all 0.20s ease-in-out;
@@ -195,8 +196,8 @@ ul {
 
 .side-panel .btn-download:hover, .side-panel .btn-download:focus {
     outline: none;
-    border: 1px solid #4B8BF4;
-    color: #4B8BF4;
+    border: 1px solid #6795F5;
+    color: #6795F5;
     background-color: #FFFFFF;
     -webkit-transition: all 0.20s ease-in-out;
     -moz-transition: all 0.20s ease-in-out;
@@ -274,7 +275,7 @@ ul {
 }
 
 .side-section-input:focus, .side-section-input:hover {
-    border: 1px solid #4B8BF4;
+    border: 1px solid #6795F5;
     outline: none;
 }
 
@@ -295,7 +296,7 @@ ul {
 }
 
 .side-section-select:focus, .side-section-select:hover {
-    border: 1px solid #4B8BF4;
+    border: 1px solid #6795F5;
     outline: none;
 }
 
@@ -330,7 +331,6 @@ ul {
 .sp-picker-container {
     border: none;
 }
-
 
 .sp-color {
     border: none;
@@ -381,7 +381,7 @@ ul {
 
 input.sp-input {
     background-color: #ffFFFF;
-    border: 1px solid #4B8BF4;
+    border: 1px solid #6795F5;
     border-radius: 2px;
     padding: 5px;
     -webkit-transition: all 0.30s ease-in-out;
@@ -392,7 +392,7 @@ input.sp-input {
 
 input.sp-input:focus, input.sp-input:hover {
     outline: none;
-    border: 1px solid #4B8BF4;
+    border: 1px solid #6795F5;
 }
 
 .sp-cancel {
@@ -417,20 +417,20 @@ input.sp-input:focus, input.sp-input:hover {
 }
 
 .sp-button-container > button {
-    background: #4B8BF4;
+    background: #6795F5;
     text-shadow: none;
     color: #fFF;
     letter-spacing: 1px;
     font-size: 11px;
     font-weight: 200;
     text-transform: uppercase;
-    border: 1px solid #4B8BF4;
+    border: 1px solid #6795F5;
 }
 
 .sp-button-container > button:hover {
-    border: 1px solid #4B8BF4;
+    border: 1px solid #6795F5;
     background: #FFF !important;
-    color: #4B8BF4;
+    color: #6795F5;
     text-shadow: none;
 }
 
@@ -454,7 +454,7 @@ input.sp-input:focus, input.sp-input:hover {
     height: 55px;
     line-height: 55px;
     color: white;
-    background-color: #4B8BF4;
+    background-color: #6795F5;
     font-weight: lighter;
     letter-spacing: 1px;
     z-index: 10;
@@ -596,7 +596,7 @@ input.sp-input:focus, input.sp-input:hover {
     width: 100%;
     height: 100%;
     border-radius: 50%;
-    background-color: #4B8BF4;
+    background-color: #6795F5;
     opacity: 0.6;
     position: absolute;
     top: 0;
@@ -637,7 +637,7 @@ input.sp-input:focus, input.sp-input:hover {
 .ngdialog-content {
     background: #ffffff !important;
     border-radius: 1px !important;
-    border: 3px solid #4B8BF4;
+    border: 3px solid #6795F5;
     color: #575859 !important;
     margin: 0 auto;
     max-width: 100%;
@@ -688,7 +688,7 @@ input.sp-input:focus, input.sp-input:hover {
 }
 
 .imodal-content input:focus, .imodal-content input:hover {
-    border: 1px solid #4B8BF4;
+    border: 1px solid #6795F5;
     outline: none;
 }
 
@@ -727,9 +727,9 @@ input.sp-input:focus, input.sp-input:hover {
 }
 
 .imodal .btn-modal-download {
-    background: #4B8BF4;
+    background: #6795F5;
     color: #fFF;
-    border: 1px solid #4B8BF4;
+    border: 1px solid #6795F5;
     -webkit-transition: all 0.30s ease-in-out;
     -moz-transition: all 0.30s ease-in-out;
     -ms-transition: all 0.30s ease-in-out;
@@ -738,8 +738,8 @@ input.sp-input:focus, input.sp-input:hover {
 
 .imodal .btn-modal-download:hover, .imodal .btn-modal-download:focus {
     outline: none;
-    border: 1px solid #4B8BF4;
-    color: #4B8BF4;
+    border: 1px solid #6795F5;
+    color: #6795F5;
     background-color: #FFFFFF;
     -webkit-transition: all 0.30s ease-in-out;
     -moz-transition: all 0.30s ease-in-out;
@@ -748,7 +748,7 @@ input.sp-input:focus, input.sp-input:hover {
 }
 
 .ngdialog.ngdialog-theme-default .ngdialog-close:before {
-    background: #4B8BF4;
+    background: #6795F5;
     border-radius: 0 !important;
     color: white;
     content: '\00D7';
