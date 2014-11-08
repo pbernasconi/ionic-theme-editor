@@ -7,7 +7,8 @@ angular.module('projectsApp', [
     'ui.router',
     'ui.bootstrap',
     'angularSpectrumColorpicker',
-    'ngDialog'
+    'ngDialog',
+    'headroom'
 ])
     .config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
         $urlRouterProvider

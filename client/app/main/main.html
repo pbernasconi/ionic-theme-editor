@@ -7,12 +7,12 @@
             <div class="logo-title">Ionic Tailor</div>
         </header>
 
-        <div class="sub-header">
+        <header class="sub-header" headroom>
             <div class="button-row">
                 <a ng-click="setButtonBar(0)" ng-class="{'selected' : isButtonBar(0)}">Customize</a>
                 <a ng-class="{'selected' : isButtonBar(1)}">Preset themes</a> <!--  ng-click="setButtonBar(1)" -->
             </div>
-        </div>
+        </header>
 
 
         <section ng-if="isButtonBar(0)">
