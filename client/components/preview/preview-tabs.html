@@ -1,51 +1,51 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <link rel="stylesheet" href="http://code.ionicframework.com/nightly/css/ionic.min.css">
-    <link id="ionic-css" rel="stylesheet" href="/">
+	<link rel="stylesheet" href="http://code.ionicframework.com/nightly/css/ionic.min.css">
+	<link id="ionic-css" rel="stylesheet" href="/">
 
-    <script src="http://code.ionicframework.com/nightly/js/ionic.bundle.min.js"></script>
+	<script src="http://code.ionicframework.com/nightly/js/ionic.bundle.min.js"></script>
 </head>
 <body ng-app="starter">
 
 <ion-pane>
-    <ion-header-bar class="bar-brand">
-        <h1 class="title">Title</h1>
-    </ion-header-bar>
-    <ion-content class="has-header has-tabs">
+	<ion-header-bar class="bar-brand">
+		<h1 class="title">Title</h1>
+	</ion-header-bar>
+	<ion-content class="has-header has-tabs">
 
-    </ion-content>
-    <ion-tabs class="tabs-positive tabs-icon-only">
+	</ion-content>
+	<ion-tabs class="tabs-positive tabs-icon-only">
 
-        <ion-tab title="Home" icon-on="ion-ios7-filing" icon-off="ion-ios7-filing-outline">
-            <!-- Tab 1 content -->
-        </ion-tab>
+		<ion-tab title="Home" icon-on="ion-ios-filing" icon-off="ion-ios-filing-outline">
+			<!-- Tab 1 content -->
+		</ion-tab>
 
-        <ion-tab title="About" icon-on="ion-ios7-clock" icon-off="ion-ios7-clock-outline">
-            <!-- Tab 2 content -->
-        </ion-tab>
+		<ion-tab title="About" icon-on="ion-ios-clock" icon-off="ion-ios-clock-outline">
+			<!-- Tab 2 content -->
+		</ion-tab>
 
-        <ion-tab title="Settings" icon-on="ion-ios7-gear" icon-off="ion-ios7-gear-outline">
-            <!-- Tab 3 content -->
-        </ion-tab>
+		<ion-tab title="Settings" icon-on="ion-ios-gear" icon-off="ion-ios-gear-outline">
+			<!-- Tab 3 content -->
+		</ion-tab>
 
-    </ion-tabs>
+	</ion-tabs>
 </ion-pane>
 <script>
-    angular.module('starter', ['ionic']);
+	angular.module('starter', ['ionic']);
 
-    var css = document.getElementById('ionic-css');
-    window.IonicThemer = {
-        update: function (colors) {
-            var args = [];
-            for (var i = 0; i < colors.length; i++) {
-                args.push(encodeURIComponent(colors[i].variable) + "=" + encodeURIComponent(colors[i].value));
-            }
-            var path = args.join('&');
-            var newUrl = '/api/compile/live/ionic.css?' + path;
-            css.setAttribute('href', newUrl);
-        }
-    }
+	var css = document.getElementById('ionic-css');
+	window.IonicThemer = {
+		update: function (colors) {
+			var args = [];
+			for (var i = 0; i < colors.length; i++) {
+				args.push(encodeURIComponent(colors[i].variable) + "=" + encodeURIComponent(colors[i].value));
+			}
+			var path = args.join('&');
+			var newUrl = '/api/compile/live/ionic.css?' + path;
+			css.setAttribute('href', newUrl);
+		}
+	}
 </script>
 </body>
 </html>
