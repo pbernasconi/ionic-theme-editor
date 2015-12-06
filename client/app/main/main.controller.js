@@ -140,6 +140,7 @@ angular.module("projectsApp")
         $scope.modalDownload = function () {
             Compiler.post(data, $scope.cssType)
                 .success(function (response) {
+                    console.log('Compiler Post successful! response = ' + JSON.stringify(response, null, 4));
                     if (response.success == true) {
                         var id = response.id;
                         console.log(id);
