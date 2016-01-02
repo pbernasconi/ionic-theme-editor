@@ -107,21 +107,21 @@ exports.live = function (req, res) {
     //sassString += "@function best-text-color($color) { @if (lightness( $color ) > 70) {@return #000000;} @else { @return #FFFFFF;}}";
     //sassString += ".bar {&.bar-brand { @include bar-style($brand, lighten($brand, 50%), best-text-color($brand));} }";
 
-
     var stats = {};
     sass.render({
         data: sassString,
-        success: function (css) {
-            res.send(css);
-        },
-        error: function (error) {
-            console.log(error);
-            res.status(400).json({success: false, id: null});
-        },
         includePaths: ['ionic/scss/ionic'],
-        outputStyle: 'compressed',
+        // outputStyle: 'compressed',
         stats: stats
-    });
+      },
+      function (err, css) {
+        if(err){
+          console.log(error);
+          res.status(400).json({success: false, id: null});
+
+        }
+        res.send(css.css);
+      });
 };
 
 
