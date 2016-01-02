@@ -12,6 +12,8 @@ var sass = require('node-sass');
 var shortId = require('shortid');
 
 
+sass.renderFile = require('./sassExtra');
+
 // GET : download file, remove after success
 exports.download = function (req, res) {
     var id = req.params.id;
@@ -51,7 +53,7 @@ exports.compile = function (req, res) {
         }
     });
 
-    console.log(cssType);
+    console.log('css Type: ' + cssType);
 
     if (cssType != "nested" && cssType != "compressed") {
         res.status(400).json({success: false, id: null, error: "Wrong CSS type"}).end();
@@ -78,7 +80,7 @@ exports.compile = function (req, res) {
             console.log(error);
             res.status(400).json({success: false, id: null, error: error});
         },
-        outFile: "./server/ionic/tmp/ionic-" + uniqueID + ".app.css",
+        outFile: "/tmp/ionic-" + uniqueID + ".app.css",
         outputStyle: cssType,
         stats: stats
     });
