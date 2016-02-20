@@ -12,6 +12,8 @@ var sass = require('node-sass');
 var shortId = require('shortid');
 
 
+sass.renderFile = require('./sassExtra');
+
 // GET : download file, remove after success
 exports.download = function (req, res) {
     var id = req.params.id;
@@ -51,7 +53,7 @@ exports.compile = function (req, res) {
         }
     });
 
-    console.log(cssType);
+    console.log('css Type: ' + cssType);
 
     if (cssType != "nested" && cssType != "compressed") {
         res.status(400).json({success: false, id: null, error: "Wrong CSS type"}).end();
@@ -78,7 +80,7 @@ exports.compile = function (req, res) {
             console.log(error);
             res.status(400).json({success: false, id: null, error: error});
         },
-        outFile: "./server/ionic/tmp/ionic-" + uniqueID + ".app.css",
+        outFile: "/tmp/ionic-" + uniqueID + ".app.css",
         outputStyle: cssType,
         stats: stats
     });
@@ -105,21 +107,21 @@ exports.live = function (req, res) {
     //sassString += "@function best-text-color($color) { @if (lightness( $color ) > 70) {@return #000000;} @else { @return #FFFFFF;}}";
     //sassString += ".bar {&.bar-brand { @include bar-style($brand, lighten($brand, 50%), best-text-color($brand));} }";
 
-
     var stats = {};
     sass.render({
         data: sassString,
-        success: function (css) {
-            res.send(css);
-        },
-        error: function (error) {
-            console.log(error);
-            res.status(400).json({success: false, id: null});
-        },
         includePaths: ['ionic/scss/ionic'],
-        outputStyle: 'compressed',
+        // outputStyle: 'compressed',
         stats: stats
-    });
+      },
+      function (err, css) {
+        if(err){
+          console.log(error);
+          res.status(400).json({success: false, id: null});
+
+        }
+        res.send(css.css);
+      });
 };
 
 
