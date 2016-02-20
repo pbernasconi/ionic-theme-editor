@@ -18,7 +18,7 @@ Currently the Ionic Theme Editor is hosted in a heroku app. All changes inbetwee
 
 ```
 git clone https://github.com/pbernasconi/ionic-theme-editor.git
-cd .../ionic-theme-editor
+cd ionic-theme-editor
 npm install
 bower install
 grunt build
